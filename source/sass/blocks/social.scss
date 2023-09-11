@@ -1,0 +1,58 @@
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 148px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  gap: 5px 20px;
+
+  @include vp-1199 {
+    max-width: 260px;
+    gap: 5px 10px;
+    grid-area: 2/1/3/3;
+    justify-self: end;
+  }
+
+  @include vp-767 {
+    justify-content: center;
+    order: 1;
+    max-width: 100%;
+  }
+}
+
+.social__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  color: $color-default-white;
+  background-color: $color-cerulean-blue;
+  border-radius: 50%;
+  outline: none;
+  transition: all $trans-default;
+
+  svg {
+    display: block;
+  }
+
+  @include vp-767 {
+    width: 26px;
+    height: 26px;
+
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  @include hover-focus {
+    color: rgba($color-default-white, 0.7);
+  }
+
+  @include active {
+    color: $color-default-white;
+    background-color: $color-endeavour;
+  }
+}
