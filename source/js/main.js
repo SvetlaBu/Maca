@@ -4,6 +4,7 @@ import {initAccordions} from './vendor/accordion/init-accordion';
 import {Form} from './modules/form-validate/form';
 import {addHeroSlider} from './modules/actions/hero-slider';
 import {addToggleMenu} from './modules/actions/header-menu';
+import {addProgramsSlider} from './modules/actions/programs';
 
 // ---------------------------------
 window.addEventListener('DOMContentLoaded', () => {
@@ -16,6 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
   addHeroSlider();
   addToggleMenu();
   initAccordions();
+  addProgramsSlider();
   // ---------------------------------
 
   // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
