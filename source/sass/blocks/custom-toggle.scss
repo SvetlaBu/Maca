@@ -1,138 +1,172 @@
 .custom-toggle {
-  position: relative;
-  font-size: 18px;
-  line-height: 27px;
-  font-weight: 300;
+  margin: 2px 0 0;
+  font-size: 12px;
+  line-height: 12px;
 
-  display: flex;
-  width: 500px;
-  padding: 14px 0 10px 36px;
+  label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 20px;
+    cursor: pointer;
 
-  @media screen and (max-width: 767px) {
-    padding: 14px 0 10px 0;
-    width: 100%;
-  }
-
-  &:last-of-type {
-    padding: 14px 0 58px 36px;
-
-    @media screen and (max-width: 767px) {
-      padding: 14px 0 58px 0;
+    &:has(input:disabled) {
+      pointer-events: none;
     }
   }
 
   input {
     position: absolute;
-
     width: 1px;
     height: 1px;
     margin: -1px;
-
     clip: rect(0 0 0 0);
-  }
 
-  label {
-    position: relative;
-
-    padding-left: 52px;
-
-    cursor: pointer;
-
-    span {
-      margin-bottom: 0;
-      margin-left: 0;
-    }
-  }
-
-  &--checkbox {
-    .custom-toggle__icon {
-      position: absolute;
-      top: 0;
-      left: 0;
-
-      width: 28px;
-      height: 28px;
-
-      border: 1.5px solid #2c39f2;
-
-      transition: border 0.3s ease;
+    &:checked + .custom-toggle__icon {
+      background-color: $color-default-white;
 
       &::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
+        opacity: 1;
+      }
+    }
 
-        width: 20px;
-        height: 20px;
+    &:checked {
+      @include hover-focus {
+        & + .custom-toggle__icon {
+          background-color: $color-transparent;
 
-        background-color: rgba(#2c39f2, 0);
+          &::before {
+            background-image: url('data:image/svg+xml,\<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">\<path d="M1 3.5L3.94737 7L9 1" stroke="%23ffffff" stroke-linecap="round" stroke-linejoin="round"/>\</svg>');
+          }
+        }
+      }
 
-        transform: translate(-50%, -50%);
+      &:disabled {
+        & + .custom-toggle__icon {
+          background-color: $color-mischka;
+          border-color: $color-mischka;
 
-        transition: background-color 0.3s ease;
+          &::before {
+            background-image: url('data:image/svg+xml,\<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">\<path d="M1 3.5L3.94737 7L9 1" stroke="%23ffffff" stroke-linecap="round" stroke-linejoin="round"/>\</svg>');
+          }
+        }
+      }
+    }
+
+    @include hover-focus {
+      & + .custom-toggle__icon {
+        border-color: $color-default-white;
+      }
+    }
+
+    &:disabled {
+      & + .custom-toggle__icon {
+        background-color: rgba($color-default-white, 0.6);
+        border-color: $color-default-white;
+        pointer-events: none;
       }
     }
   }
 
-  &--radio {
-    .custom-toggle__icon {
-      position: absolute;
-      top: 0;
-      left: 0;
+  &--secondary {
+    input {
+      &:checked + .custom-toggle__icon {
+        background-color: $color-cerulean-blue;
+        border-color: $color-cerulean-blue;
 
-      width: 28px;
-      height: 28px;
+        &::before {
+          background-image: url('data:image/svg+xml,\<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">\<path d="M1 3.5L3.94737 7L9 1" stroke="%23ffffff" stroke-linecap="round" stroke-linejoin="round"/>\</svg>');
+        }
+      }
 
-      border: 1px solid #2c39f2;
-      border-radius: 50%;
+      &:checked {
+        @include hover-focus {
+          & + .custom-toggle__icon {
+            background-color: $color-transparent;
 
-      transition: border 0.3s ease;
+            &::before {
+              background-image: url('data:image/svg+xml,\<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">\<path d="M1 3.5L3.94737 7L9 1" stroke="%23484848" stroke-linecap="round" stroke-linejoin="round"/>\</svg>');
+            }
+          }
+        }
 
-      &::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
+        &:disabled {
+          & + .custom-toggle__icon {
+            background-color: $color-mischka;
+            border-color: $color-mischka;
 
-        width: 20px;
-        height: 20px;
+            &::before {
+              background-image: url('data:image/svg+xml,\<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">\<path d="M1 3.5L3.94737 7L9 1" stroke="%23ffffff" stroke-linecap="round" stroke-linejoin="round"/>\</svg>');
+            }
+          }
+        }
+      }
 
-        color: rgba(255, 255, 255, 0);
+      @include hover-focus {
+        & + .custom-toggle__icon {
+          border-color: $color-charcoal;
+        }
+      }
 
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-
-        transition: color 0.3s ease;
+      &:disabled {
+        & + .custom-toggle__icon {
+          background-color: rgba($color-charcoal, 0.6);
+          border-color: $color-charcoal;
+        }
       }
     }
   }
 
-  input:checked + .custom-toggle__icon {
-    border: 1.5px solid #2c39f2;
+  @include vp-767 {
+    margin: 0;
+    line-height: 14px;
 
-    &::before {
-      background-color: #2c39f2;
+    &--secondary {
+      margin: 1px 0 0;
     }
   }
+}
 
-  &.is-invalid {
-    label span {
-      color: #ff1553;
-    }
-  }
+.custom-toggle--checkbox .custom-toggle__icon {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%);
+  border: 1px solid rgba($color-default-white, 0.7);
+  border-radius: 2px;
+  transition: all $trans-default;
 
-  .input-message {
+  &::before {
+    content: "";
     position: absolute;
-    right: 0;
-    bottom: -5px;
-
-    &.is-invalid {
-      color: #ff0000;
-    }
-
-    &.is-valid {
-      color: #15ab07;
-    }
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 8px;
+    background-color: $color-transparent;
+    background-image: url('data:image/svg+xml,\<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">\<path d="M1 3.5L3.94737 7L9 1" stroke="%23316dc2" stroke-linecap="round" stroke-linejoin="round"/>\</svg>');
+    border-radius: 2px;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all $trans-default;
   }
+
+  &--secondary {
+    border-color: rgba($color-charcoal, 0.7);
+  }
+
+  @include vp-767 {
+    top: calc(50% - 1px);
+  }
+}
+
+.custom-toggle__label {
+  padding-left: 30px;
+}
+
+.custom-toggle.is-invalid .custom-toggle__icon {
+  background: rgba($color-wild-watermelon, 0.2);
+  border: 1px solid $color-wild-watermelon;
 }

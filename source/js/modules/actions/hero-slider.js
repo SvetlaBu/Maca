@@ -18,7 +18,7 @@ const addHeroSlider = () => {
         el: '.hero__pagination',
         clickable: true,
         renderBullet: (index, className) => {
-          return `<button class="hero__pagination-button ${className} type="button" aria-label="Перейти к ${index + 1} слайду"></button>`;
+          return `<button class="hero__bullet ${className} type="button" aria-label="Перейти к ${index + 1} слайду"></button>`;
         },
       },
     });

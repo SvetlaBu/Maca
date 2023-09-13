@@ -1,0 +1,255 @@
+.programs {
+  background-color: $color-alabaster;
+}
+
+.programs__container {
+  position: relative;
+  padding-top: 62px;
+  padding-bottom: 120px;
+
+  @include vp-1199 {
+    padding-top: 50px;
+    padding-bottom: 100px;
+  }
+
+  @include vp-767 {
+    padding-top: 35px;
+    padding-bottom: 139px;
+  }
+}
+
+.programs__headline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 46px;
+
+  @include vp-1199 {
+    margin: 1px 0 43px;
+  }
+
+  @include vp-767 {
+    margin: 0 0 32px;
+  }
+}
+
+.programs__title {
+  padding-right: 242px;
+  display: inline-block;
+
+  @include vp-767 {
+    margin: 0 0 32px;
+  }
+}
+
+.programs__btn {
+  position: relative;
+  max-width: 30%;
+  display: inline-block;
+
+  @include vp-1199 {
+    top: 50px;
+    right: 45px;
+  }
+
+  @include vp-767 {
+    top: auto;
+    right: auto;
+    bottom: 67px;
+    left: 15px;
+    padding-right: 68px;
+    padding-left: 29px;
+  }
+}
+
+.programs__slider {
+  margin: 0 0 40px;
+
+  @include vp-1199 {
+    overflow: visible;
+  }
+
+  @include vp-767 {
+    margin: 0;
+    overflow: hidden;
+  }
+}
+
+.programs__list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.programs__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 392px;
+  height: auto;
+  aspect-ratio: 392/420;
+
+  picture {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(49, 109, 194, 0.2);
+      inset: 0;
+      border-radius: 12px;
+    }
+  }
+
+  img {
+    border-radius: 12px;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @include vp-1199 {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.programs__info {
+  position: relative;
+  padding: 20px;
+
+  h3 {
+    position: relative;
+    width: 194px;
+    margin: 0;
+    padding: 13px 18px 2px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 26px;
+    color: $color-cerulean-blue;
+    background-color: $color-default-white;
+    border-radius: 12px 12px 0 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      right: -18px;
+      bottom: 0;
+      width: 18px;
+      height: 18px;
+      background-image: url('data:image/svg+xml,\<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">\<path d="M18 18C8.05888 18 0 9.94112 0 0V18H18Z" fill="%23ffffff"/>\</svg>');
+    }
+  }
+
+  @include vp-1199 {
+    padding-right: 41px;
+
+    h3 {
+      width: 173px;
+      padding: 13px 18px 1px;
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+
+  @include vp-767 {
+    padding: 18px 10px;
+
+    h3 {
+      width: 146px;
+      padding: 18px 18px 6px;
+      font-size: 16px;
+      line-height: 18px;
+    }
+  }
+}
+
+.programs__text-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 79px;
+  padding: 11px 18px 14px;
+  background-color: $color-default-white;
+  border-radius: 0 12px 12px 12px;
+  gap: 0 16px;
+
+  p {
+    width: 239px;
+    margin: 0;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  @include vp-1199 {
+    min-height: 77px;
+    padding: 7px 18px 10px;
+    gap: 0 15px;
+
+    p {
+      width: auto;
+      max-width: 80%;
+      line-height: 20px;
+    }
+  }
+
+  @include vp-767 {
+    min-height: 69px;
+    padding-bottom: 9px;
+
+    p {
+      max-width: 100%;
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+}
+
+.programs__arrow {
+  flex-shrink: 0;
+}
+
+.programs__controls {
+  display: flex;
+  align-items: center;
+  gap: 0 52px;
+
+  @include vp-1199 {
+    gap: 0 64px;
+  }
+
+  @include vp-767 {
+    position: absolute;
+    top: 33px;
+    right: 15px;
+  }
+}
+
+.programs__scrollbar {
+  width: 100%;
+  height: 2px;
+  margin: 0 0 2px;
+  background-color: rgba($color-cerulean-blue, 0.2);
+
+  @include vp-767 {
+    display: none;
+  }
+}
+
+.programs__scrollbar .swiper-scrollbar-drag {
+  background-color: $color-cerulean-blue;
+}
+
+.programs__arrows {
+  display: flex;
+  margin-left: auto;
+  gap: 0 10px;
+
+  @include vp-767 {
+    gap: 0 8px;
+  }
+}
