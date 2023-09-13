@@ -5,6 +5,8 @@ import {Form} from './modules/form-validate/form';
 import {addHeroSlider} from './modules/actions/hero-slider';
 import {addToggleMenu} from './modules/actions/header-menu';
 import {addProgramsSlider} from './modules/actions/programs';
+import {addTabHandler} from './modules/actions/tabs';
+import {addNewsSlider} from './modules/actions/news';
 
 // ---------------------------------
 window.addEventListener('DOMContentLoaded', () => {
@@ -18,6 +20,8 @@ window.addEventListener('DOMContentLoaded', () => {
   addToggleMenu();
   initAccordions();
   addProgramsSlider();
+  addTabHandler();
+  addNewsSlider();
   // ---------------------------------
 
   // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'

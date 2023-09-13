@@ -247,9 +247,9 @@
                   </picture>
                   <div class="programs__info">
                     <h3>Стажировки</h3>
-                    <div class="programs__text-container">
+                    <div class="programs__text">
                       <p>Получите незаменимый опыт работы в&nbsp;крупнейших израильских компаниях.</p>
-                      <a class="programs__arrow button-arrow" href="#" aria-label="Перейти на страницу всех программ.">
+                      <a class="programs__arrow btn-arrow" href="#" aria-label="Перейти на страницу всех программ.">
                         <svg width="10" height="10" aria-hidden="true" focusable="false">
                           <use href="./img/sprite.svg#arrow"></use>
                         </svg>
@@ -268,9 +268,9 @@
                   </picture>
                   <div class="programs__info">
                     <h3>Волонтёрство</h3>
-                    <div class="programs__text-container">
+                    <div class="programs__text">
                       <p>Помогайте другим и&nbsp;развивайте свои лидерские качества.</p>
-                      <a class="programs__arrow button-arrow" href="#" aria-label="Перейти на страницу всех программ.">
+                      <a class="programs__arrow btn-arrow" href="#" aria-label="Перейти на страницу всех программ.">
                         <svg width="10" height="10" aria-hidden="true" focusable="false">
                           <use href="./img/sprite.svg#arrow"></use>
                         </svg>
@@ -289,9 +289,9 @@
                   </picture>
                   <div class="programs__info">
                     <h3>Учёба</h3>
-                    <div class="programs__text-container">
+                    <div class="programs__text">
                       <p>Получите образование и&nbsp;измените свое будущее.</p>
-                      <a class="programs__arrow button-arrow" href="#" aria-label="Перейти на страницу всех программ.">
+                      <a class="programs__arrow btn-arrow" href="#" aria-label="Перейти на страницу всех программ.">
                         <svg width="10" height="10" aria-hidden="true" focusable="false">
                           <use href="./img/sprite.svg#arrow"></use>
                         </svg>
@@ -310,9 +310,9 @@
                   </picture>
                   <div class="programs__info">
                     <h3>Стажировки</h3>
-                    <div class="programs__text-container">
+                    <div class="programs__text">
                       <p>Получите незаменимый опыт работы в&nbsp;крупнейших израильских компаниях.</p>
-                      <a class="programs__arrow button-arrow" href="#" aria-label="Перейти на страницу всех программ.">
+                      <a class="programs__arrow btn-arrow" href="#" aria-label="Перейти на страницу всех программ.">
                         <svg width="10" height="10" aria-hidden="true" focusable="false">
                           <use href="./img/sprite.svg#arrow"></use>
                         </svg>
@@ -336,6 +336,230 @@
                   </svg>
                 </button>
               </div>
+            </div>
+          </div>
+        </section>
+        <section class="rules" id="rules">
+          <div class="rules__container container">
+            <div class="rules__headline">
+              <h2 class="rules__title title">Как поехать</h2>
+              <p>Свяжитесь с&nbsp;координатором, чтобы узнать полную информацию. Вы&nbsp;получите актуальные сведения о&nbsp;доступных программах и&nbsp;городах, в&nbsp;которых можете пройти программу.</p>
+              <picture>
+                <source type="image/webp" media="(max-width: 767px)" srcset="./img/signpost-mobile@1x.webp, ./img/signpost-mobile@2x.webp 2x" width="290" height="200">
+                <source type="image/webp" media="(max-width: 1199px)" srcset="./img/signpost-tablet@1x.webp, ./img/signpost-tablet@2x.webp 2x" width="678" height="375">
+                <source type="image/webp" srcset="./img/signpost-desktop@1x.webp, ./img/signpost-desktop@2x.webp 2x" width="498" height="363">
+                <source media="(max-width: 767px)" srcset="./img/signpost-mobile@1x.jpg, ./img/signpost-mobile@2x.jpg 2x" width="290" height="200">
+                <source media="(max-width: 1199px)" srcset="./img/signpost-tablet@1x.jpg, ./img/signpost-tablet@2x.jpg 2x" width="678" height="375">
+                <img src="./img/signpost-desktop@1x.jpg" srcset="./img/signpost-desktop@2x.jpg 2x" width="498" height="363" alt="Фото столба с указателями расстояний до разных городов мира." loading="lazy">
+              </picture>
+            </div>
+            <div class="rules__instructions">
+              <p>Чтобы получить грант на&nbsp;обучение, вам нужно:</p>
+              <ol class="rules__list">
+                <li>Быть в&nbsp;возрасте от&nbsp;16&nbsp;до&nbsp;30&nbsp;лет</li>
+                <li>Иметь оконченное среднее образование</li>
+                <li>Иметь документально подтверждённые еврейские корни и&nbsp;пройти консульскую проверку</li>
+                <li>За&nbsp;последние 2&nbsp;года быть не&nbsp;больше 3х&nbsp;месяцев подряд непрерывно в&nbsp;Израиле</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+        <section class="news" id="news">
+          <div class="news__container container">
+            <h2 class="news__title title">Новости и&nbsp;материалы</h2>
+            <ul class="news__tabs">
+              <li class="news__tab">
+                <button class="news__btn is-active" data-sort="general">Общее</button>
+              </li>
+              <li class="news__tab">
+                <button class="news__btn" data-sort="volunteering">Волонтёрство</button>
+              </li>
+              <li class="news__tab">
+                <button class="news__btn" data-sort="internships">Стажировки</button>
+              </li>
+              <li class="news__tab">
+                <button class="news__btn" data-sort="career">Карьера</button>
+              </li>
+              <li class="news__tab">
+                <button class="news__btn" data-sort="travel">Путешествия</button>
+              </li>
+            </ul>
+            <div class="news__slider swiper">
+              <ul class="news__list swiper-wrapper">
+                <li class="news__item swiper-slide" data-sort="internships">
+                  <picture>
+                    <source type="image/webp" media="(max-width: 1199px)" srcset="./img/news-interview-tablet@1x.webp, ./img/news-interview-tablet@2x.webp 2x" width="324" height="350">
+                    <source type="image/webp" srcset="./img/news-interview-desktop@1x.webp, ./img/news-interview-desktop@2x.webp 2x" width="604" height="400">
+                    <source media="(max-width: 1199px)" srcset="./img/news-interview-tablet@1x.jpg, ./img/news-interview-tablet@2x.jpg 2x" width="324" height="350">
+                    <img src="./img/news-interview-desktop@1x.jpg" srcset="./img/news-interview-desktop@2x.jpg 2x" width="604" height="400" alt="Смуглая кучерявая девушка улыбается светлокожему русому парню на фоне полок с книгами." loading="lazy">
+                  </picture>
+                  <div class="news__content">
+                    <time datetime="2023-03-23">23/03/2023</time>
+                    <h3>Интервью с&nbsp;участницей программы стажировки</h3>
+                    <div class="news__text">
+                      <p>Саша рассказывает, как попала в&nbsp;программу и&nbsp;как прошла 6-месячная стажировка в&nbsp;ISOFound</p>
+                      <button class="news__button btn-arrow" aria-label="Перейти на страницу всех новостей.">
+                        <svg width="10" height="10" aria-hidden="true" focusable="false">
+                          <use href="./img/sprite.svg#arrow"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </li>
+                <li class="news__item swiper-slide" data-sort="travel">
+                  <picture>
+                    <source type="image/webp" media="(max-width: 1199px)" srcset="./img/news-travel-tablet@1x.webp, ./img/news-travel-tablet@2x.webp 2x" width="324" height="350">
+                    <source type="image/webp" srcset="./img/news-travel-desktop@1x.webp, ./img/news-travel-desktop@2x.webp 2x" width="286" height="400">
+                    <source media="(max-width: 1199px)" srcset="./img/news-travel-tablet@1x.jpg, ./img/news-travel-tablet@2x.jpg 2x" width="324" height="350">
+                    <img src="./img/news-travel-desktop@1x.jpg" srcset="./img/news-travel-desktop@2x.jpg 2x" width="286" height="400" alt="Вид с высоты птичьего полета на берег спокойного моря и отели." loading="lazy">
+                  </picture>
+                  <div class="news__content">
+                    <time datetime="2023-03-20">20/03/2023</time>
+                    <h3>Путешествуем по&nbsp;Израилю</h3>
+                    <div class="news__text">
+                      <p>Какие места посещают наши студенты весной</p>
+                      <button class="news__button btn-arrow" aria-label="Перейти на страницу всех новостей.">
+                        <svg width="10" height="10" aria-hidden="true" focusable="false">
+                          <use href="./img/sprite.svg#arrow"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </li>
+                <li class="news__item swiper-slide" data-sort="volunteering">
+                  <picture>
+                    <source type="image/webp" media="(max-width: 1199px)" srcset="./img/news-volunteering-tablet@1x.webp, ./img/news-volunteering-tablet@2x.webp 2x" width="324" height="350">
+                    <source type="image/webp" srcset="./img/news-volunteering-desktop@1x.webp, ./img/news-volunteering-desktop@2x.webp 2x" width="286" height="400">
+                    <source media="(max-width: 1199px)" srcset="./img/news-volunteering-tablet@1x.jpg, ./img/news-volunteering-tablet@2x.jpg 2x" width="324" height="350">
+                    <img src="./img/news-volunteering-desktop@1x.jpg" srcset="./img/news-volunteering-desktop@2x.jpg 2x" width="286" height="400" alt="Смуглая девушка широко улыбается, держась за свой нагрудный значок волонтера." loading="lazy">
+                  </picture>
+                  <div class="news__content">
+                    <time datetime="2023-03-17">17/03/2023</time>
+                    <h3>Новая программа волонтёрства</h3>
+                    <div class="news__text">
+                      <p>Программа помощи детям длительностью 4&nbsp;месяца</p>
+                      <button class="news__button btn-arrow" aria-label="Перейти на страницу всех новостей.">
+                        <svg width="10" height="10" aria-hidden="true" focusable="false">
+                          <use href="./img/sprite.svg#arrow"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </li>
+                <li class="news__item swiper-slide" data-sort="career">
+                  <picture>
+                    <source type="image/webp" media="(max-width: 1199px)" srcset="./img/news-career-tablet@1x.webp, ./img/news-career-tablet@2x.webp 2x" width="324" height="350">
+                    <source type="image/webp" srcset="./img/news-career-desktop@1x.webp, ./img/news-career-desktop@2x.webp 2x" width="286" height="400">
+                    <source media="(max-width: 1199px)" srcset="./img/news-career-tablet@1x.jpg, ./img/news-career-tablet@2x.jpg 2x" width="324" height="350">
+                    <img src="./img/news-career-desktop@1x.jpg" srcset="./img/news-career-desktop@2x.jpg 2x" width="286" height="400" alt="Вид сверху на рабочий стол с ноутбуком, внешним диском, чайником и чайными чашками." loading="lazy">
+                  </picture>
+                  <div class="news__content">
+                    <time datetime="2023-03-10">10/03/2023</time>
+                    <h3>Построй свою карьеру</h3>
+                    <div class="news__text">
+                      <p>Ведущие компании готовы трудоустроить выпускников стажировки</p>
+                      <button class="news__button btn-arrow" aria-label="Перейти на страницу всех новостей.">
+                        <svg width="10" height="10" aria-hidden="true" focusable="false">
+                          <use href="./img/sprite.svg#arrow"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </li>
+                <li class="news__item news__item--bottom swiper-slide">
+                  <picture>
+                    <source type="image/webp" media="(max-width: 1199px)" srcset="./img/news-travel-tablet@1x.webp, ./img/news-travel-tablet@2x.webp 2x" width="324" height="350">
+                    <source type="image/webp" srcset="./img/news-travel-desktop@1x.webp, ./img/news-travel-desktop@2x.webp 2x" width="286" height="400">
+                    <source media="(max-width: 1199px)" srcset="./img/news-travel-tablet@1x.jpg, ./img/news-travel-tablet@2x.jpg 2x" width="324" height="350">
+                    <img src="./img/news-travel-desktop@1x.jpg" srcset="./img/news-travel-desktop@2x.jpg 2x" width="286" height="400" alt="Вид с высоты птичьего полета на берег спокойного моря и отели." loading="lazy">
+                  </picture>
+                  <div class="news__content">
+                    <time datetime="2023-03-20">20/03/2023</time>
+                    <h3>Путешествуем по&nbsp;Израилю</h3>
+                    <div class="news__text">
+                      <p>Какие места посещают наши студенты весной</p>
+                      <button class="news__button btn-arrow" aria-label="Перейти на страницу всех новостей.">
+                        <svg width="10" height="10" aria-hidden="true" focusable="false">
+                          <use href="./img/sprite.svg#arrow"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </li>
+                <li class="news__item news__item--bottom swiper-slide" data-sort="volunteering">
+                  <picture>
+                    <source type="image/webp" media="(max-width: 1199px)" srcset="./img/news-volunteering-tablet@1x.webp, ./img/news-volunteering-tablet@2x.webp 2x" width="324" height="350">
+                    <source type="image/webp" srcset="./img/news-volunteering-desktop@1x.webp, ./img/news-volunteering-desktop@2x.webp 2x" width="286" height="400">
+                    <source media="(max-width: 1199px)" srcset="./img/news-volunteering-tablet@1x.jpg, ./img/news-volunteering-tablet@2x.jpg 2x" width="324" height="350">
+                    <img src="./img/news-volunteering-desktop@1x.jpg" srcset="./img/news-volunteering-desktop@2x.jpg 2x" width="286" height="400" alt="Смуглая девушка широко улыбается, держась за свой нагрудный значок волонтера." loading="lazy">
+                  </picture>
+                  <div class="news__content">
+                    <time datetime="2023-03-17">17/03/2023</time>
+                    <h3>Новая программа волонтёрства</h3>
+                    <div class="news__text">
+                      <p>Программа помощи детям длительностью 4&nbsp;месяца</p>
+                      <button class="news__button btn-arrow" aria-label="Перейти на страницу всех новостей.">
+                        <svg width="10" height="10" aria-hidden="true" focusable="false">
+                          <use href="./img/sprite.svg#arrow"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </li>
+                <li class="news__item news__item--bottom swiper-slide" data-sort="career">
+                  <picture>
+                    <source type="image/webp" media="(max-width: 1199px)" srcset="./img/news-career-tablet@1x.webp, ./img/news-career-tablet@2x.webp 2x" width="324" height="350">
+                    <source type="image/webp" srcset="./img/news-career-desktop@1x.webp, ./img/news-career-desktop@2x.webp 2x" width="286" height="400">
+                    <source media="(max-width: 1199px)" srcset="./img/news-career-tablet@1x.jpg, ./img/news-career-tablet@2x.jpg 2x" width="324" height="350">
+                    <img src="./img/news-career-desktop@1x.jpg" srcset="./img/news-career-desktop@2x.jpg 2x" width="286" height="400" alt="Вид сверху на рабочий стол с ноутбуком, внешним диском, чайником и чайными чашками." loading="lazy">
+                  </picture>
+                  <div class="news__content">
+                    <time datetime="2023-03-10">10/03/2023</time>
+                    <h3>Построй свою карьеру</h3>
+                    <div class="news__text">
+                      <p>Ведущие компании готовы трудоустроить выпускников стажировки</p>
+                      <button class="news__button btn-arrow" aria-label="Перейти на страницу всех новостей.">
+                        <svg width="10" height="10" aria-hidden="true" focusable="false">
+                          <use href="./img/sprite.svg#arrow"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </li>
+                <li class="news__item news__item--bottom swiper-slide" data-sort="travel">
+                  <picture>
+                    <source type="image/webp" media="(max-width: 1199px)" srcset="./img/news-travel-tablet@1x.webp, ./img/news-travel-tablet@2x.webp 2x" width="324" height="350">
+                    <source type="image/webp" srcset="./img/news-travel-desktop@1x.webp, ./img/news-travel-desktop@2x.webp 2x" width="286" height="400">
+                    <source media="(max-width: 1199px)" srcset="./img/news-travel-tablet@1x.jpg, ./img/news-travel-tablet@2x.jpg 2x" width="324" height="350">
+                    <img src="./img/news-travel-desktop@1x.jpg" srcset="./img/news-travel-desktop@2x.jpg 2x" width="286" height="400" alt="Вид с высоты птичьего полета на берег спокойного моря и отели." loading="lazy">
+                  </picture>
+                  <div class="news__content">
+                    <time datetime="2023-03-20">20/03/2023</time>
+                    <h3>Путешествуем по&nbsp;Израилю</h3>
+                    <div class="news__text">
+                      <p>Какие места посещают наши студенты весной</p>
+                      <button class="news__button btn-arrow" aria-label="Перейти на страницу всех новостей.">
+                        <svg width="10" height="10" aria-hidden="true" focusable="false">
+                          <use href="./img/sprite.svg#arrow"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="news__controls">
+              <button class="news__prev swiper-arrow" type="button">
+                <svg width="8" height="8" aria-hidden="true" focusable="false">
+                  <use href="./img/sprite.svg#arrow"></use>
+                </svg>
+              </button>
+              <div class="news__pagination"></div>
+              <button class="news__next swiper-arrow swiper-arrow--next" type="button">
+                <svg width="8" height="8" aria-hidden="true" focusable="false">
+                  <use href="./img/sprite.svg#arrow"></use>
+                </svg>
+              </button>
             </div>
           </div>
         </section>
