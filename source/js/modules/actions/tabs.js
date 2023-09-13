@@ -2,7 +2,7 @@ const addTabHandler = () => {
   if (document.querySelector('.news__tabs')) {
     const ACTIVE__CLASS = 'is-active';
     const root = document.querySelector('.news__tabs');
-    // const news = document.querySelector('.news__list');
+    const news = document.querySelectorAll('.news__list .news__item');
     const tabs = root.querySelectorAll('.news__btn');
 
     root.addEventListener('click', (evt) => {
@@ -13,11 +13,19 @@ const addTabHandler = () => {
         }
       });
       const theme = evt.target.getAttribute('data-sort');
-      if (theme === 'general') { // если all
-        document.querySelectorAll('.news__item').forEach.style.setProperty('visibility', 'visible'); // отображаем все позиции
-      } else { // если не all
-        document.querySelectorAll('.news__item').setProperty('visibility', 'hidden'); // скрываем все позиции
-        document.querySelector('.news__item[data-sort="' + theme + '"]').setProperty('visibility', 'visible'); // и отображаем позиции из соответствующей категории
+      if (theme === 'general') {
+        news.forEach((el) => {
+          el.style.display = 'flex';
+        });
+      } else {
+        news.forEach((el) => {
+          const attr = el.getAttribute('data-sort');
+          if (attr === theme) {
+            el.style.display = 'flex';
+          } else {
+            el.style.display = 'none';
+          }
+        });
       }
     });
   }
