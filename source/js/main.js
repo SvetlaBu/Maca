@@ -1,12 +1,14 @@
 import {iosVhFix} from './utils/ios-vh-fix';
 import {initModals} from './modules/modals/init-modals';
 import {initAccordions} from './vendor/accordion/init-accordion';
+import {CustomSelect} from './vendor/select/custom-select';
 import {Form} from './modules/form-validate/form';
 import {addHeroSlider} from './modules/actions/hero-slider';
 import {addToggleMenu} from './modules/actions/header-menu';
 import {addProgramsSlider} from './modules/actions/programs';
 import {addTabHandler} from './modules/actions/tabs';
 import {addNewsSlider} from './modules/actions/news';
+import {addReviewsSlider} from './modules/actions/reviews';
 
 // ---------------------------------
 window.addEventListener('DOMContentLoaded', () => {
@@ -22,6 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
   addProgramsSlider();
   addTabHandler();
   addNewsSlider();
+  addReviewsSlider();
   // ---------------------------------
 
   // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
@@ -32,6 +35,8 @@ window.addEventListener('DOMContentLoaded', () => {
     const form = new Form();
     window.form = form;
     form.init();
+    const select = new CustomSelect();
+    select.init();
   });
 });
 

@@ -1,0 +1,47 @@
+.table {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3px 1px 0 0;
+  padding: 0;
+  list-style-type: none;
+  gap: 10px 26px;
+
+  @include vp-767 {
+    margin: 0;
+  }
+}
+
+.table__item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px 0;
+
+  @include vp-767 {
+    gap: 7px 0;
+  }
+}
+
+.table__sign {
+  margin: 0;
+  font-size: 12px;
+  line-height: 12px;
+  color: $color-cerulean-blue;
+  text-transform: uppercase;
+  letter-spacing: 0.12px;
+}
+
+.table__meaning {
+  margin: 0;
+  font-size: 14px;
+  line-height: 18px;
+
+  @include vp-1199 {
+    line-height: 20px;
+  }
+
+  @include vp-767 {
+    font-size: 12px;
+    line-height: 14px;
+    opacity: 0.8;
+  }
+}
