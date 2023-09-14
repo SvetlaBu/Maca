@@ -4809,6 +4809,649 @@ button,
   opacity: 1;
 }
 
+.answers {
+  background-color: #f0efe9;
+}
+
+.answers__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 61px;
+  padding-bottom: 62px;
+  gap: 67px 0;
+}
+@media (max-width: 1199px) {
+  .answers__container {
+    padding-top: 49px;
+    padding-bottom: 50px;
+    gap: 41px 0;
+  }
+}
+@media (max-width: 767px) {
+  .answers__container {
+    padding-top: 34px;
+    padding-bottom: 35px;
+    gap: 33px 0;
+  }
+}
+
+.answers__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 1028px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  gap: 10px 0;
+}
+@media (max-width: 1199px) {
+  .answers__list {
+    width: 100%;
+  }
+}
+
+.answers__item {
+  border: 1px solid #316dc2;
+  border-radius: 16px;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+.answers__item:not(.is-active):has(.answers__button:active) h3 {
+  color: #275699;
+}
+.answers__item:not(.is-active):hover, .answers__item:not(.is-active):focus {
+  background-color: #ffffff;
+}
+.answers__item:not(.is-active):hover .answers__button, .answers__item:not(.is-active):focus .answers__button {
+  background-color: #ffffff;
+  border-color: #316dc2;
+}
+.answers__item:not(.is-active):hover .answers__button::before, .answers__item:not(.is-active):hover .answers__button::after, .answers__item:not(.is-active):focus .answers__button::before, .answers__item:not(.is-active):focus .answers__button::after {
+  background-color: #316dc2;
+}
+.answers__item:not(.is-active):hover .answers__button.focus-visible:active, .answers__item:not(.is-active):focus .answers__button.focus-visible:active {
+  background-color: #275699;
+  border-color: #275699;
+}
+.answers__item:not(.is-active):hover .answers__button.focus-visible:active::before, .answers__item:not(.is-active):hover .answers__button.focus-visible:active::after, .answers__item:not(.is-active):focus .answers__button.focus-visible:active::before, .answers__item:not(.is-active):focus .answers__button.focus-visible:active::after {
+  background-color: #ffffff;
+}
+.answers__item:not(.is-active):active h3 {
+  color: #275699;
+}
+.answers__item:not(.is-active):active .answers__button {
+  background-color: #275699;
+  border-color: #275699;
+}
+.answers__item:not(.is-active):active .answers__button::before, .answers__item:not(.is-active):active .answers__button::after {
+  background-color: #ffffff;
+}
+@media (max-width: 767px) {
+  .answers__item {
+    border-radius: 14px;
+  }
+}
+
+.answers__item.is-active {
+  background-color: #316dc2;
+}
+.answers__item.is-active:has(.answers__button:active) {
+  background-color: #275699;
+}
+.answers__item.is-active:hover .answers__button, .answers__item.is-active:focus .answers__button {
+  background-color: rgba(255, 255, 255, 0);
+  border-color: #ffffff;
+}
+.answers__item.is-active:hover .answers__button::before, .answers__item.is-active:focus .answers__button::before {
+  background-color: #ffffff;
+}
+.answers__item.is-active:active {
+  background-color: #275699;
+}
+.answers__item.is-active:active .answers__button {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+.answers__item.is-active:active .answers__button::before {
+  background-color: #275699;
+}
+
+.answers__content {
+  padding: 39px;
+}
+@media (max-width: 1199px) {
+  .answers__content {
+    padding: 29px;
+  }
+}
+@media (max-width: 767px) {
+  .answers__content {
+    padding: 19px 14px;
+  }
+}
+
+.answers__item.is-active .answers__content {
+  padding-bottom: 32px;
+}
+@media (max-width: 1199px) {
+  .answers__item.is-active .answers__content {
+    padding-bottom: 25px;
+  }
+}
+@media (max-width: 767px) {
+  .answers__item.is-active .answers__content {
+    padding-bottom: 14px;
+  }
+}
+
+.answers__question {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.answers__question h3 {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  max-width: 65%;
+  margin: -7px 0;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 34px;
+  color: #316dc2;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+@media (max-width: 1199px) {
+  .answers__question h3 {
+    max-width: 80%;
+    margin: -5px 0;
+    font-size: 22px;
+    line-height: 26px;
+  }
+}
+@media (max-width: 767px) {
+  .answers__question {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .answers__question h3 {
+    max-width: 75%;
+    margin: 0;
+    font-size: 16px;
+    line-height: 18px;
+  }
+}
+
+.answers__item.is-active .answers__question h3 {
+  color: #ffffff;
+}
+
+.answers__button {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: #316dc2;
+  border: 1px solid #316dc2;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+.answers__button::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 1px;
+  margin: auto;
+  background-color: #ffffff;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  inset: 0;
+}
+.answers__button::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 18px;
+  margin: auto;
+  background-color: #ffffff;
+  opacity: 1;
+  -webkit-transition: background-color 0.3s ease, opacity 0.3s ease;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  inset: 0;
+}
+@media (hover: hover) {
+  .answers__button:hover:not(.focus-visible) {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  .answers__button:hover:not(.focus-visible)::before, .answers__button:hover:not(.focus-visible)::after {
+    background-color: #316dc2;
+  }
+}
+.answers__button.focus-visible:focus {
+  background-color: rgba(255, 255, 255, 0);
+}
+.answers__button.focus-visible:focus::before, .answers__button.focus-visible:focus::after {
+  background-color: #316dc2;
+}
+.answers__button:active {
+  background-color: #275699;
+  border-color: #275699;
+}
+.answers__button:active::before, .answers__button:active::after {
+  background-color: #ffffff;
+}
+.answers__button:disabled {
+  background-color: #a9afb7;
+  border-color: #a9afb7;
+  pointer-events: none;
+}
+.answers__button:disabled::before, .answers__button:disabled::after {
+  background-color: #ffffff;
+}
+
+.answers__item.is-active .answers__button {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+.answers__item.is-active .answers__button::before {
+  background-color: #316dc2;
+}
+.answers__item.is-active .answers__button::after {
+  opacity: 0;
+}
+@media (hover: hover) {
+  .answers__item.is-active .answers__button:hover:not(.focus-visible) {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  .answers__item.is-active .answers__button:hover:not(.focus-visible)::before {
+    background-color: #ffffff;
+  }
+}
+.answers__item.is-active .answers__button.focus-visible:focus {
+  background-color: rgba(255, 255, 255, 0);
+}
+.answers__item.is-active .answers__button.focus-visible:focus::before {
+  background-color: #ffffff;
+}
+.answers__item.is-active .answers__button.focus-visible:active {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+.answers__item.is-active .answers__button.focus-visible:active::before {
+  background-color: #275699;
+}
+
+.answers__answer {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height 0.3s ease, margin 0.3s;
+  transition: max-height 0.3s ease, margin 0.3s;
+}
+.answers__answer p {
+  max-width: 70%;
+  margin: 0;
+}
+@media (max-width: 1199px) {
+  .answers__answer p {
+    max-width: 85%;
+    line-height: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .answers__answer p {
+    max-width: 97%;
+    font-size: 14px;
+  }
+}
+
+.answers__item.is-active .answers__answer {
+  max-height: 100%;
+  margin: 13px 0 0;
+  color: #f0efe9;
+}
+@media (max-width: 1199px) {
+  .answers__item.is-active .answers__answer {
+    margin: 16px 0 0;
+  }
+}
+@media (max-width: 767px) {
+  .answers__item.is-active .answers__answer {
+    margin: 15px 0 0;
+  }
+}
+
+.reviews {
+  background-color: #f0efe9;
+}
+
+.reviews__container {
+  padding-top: 62px;
+  padding-bottom: 120px;
+}
+@media (max-width: 1199px) {
+  .reviews__container {
+    padding-top: 49px;
+    padding-bottom: 100px;
+  }
+}
+@media (max-width: 767px) {
+  .reviews__container {
+    position: relative;
+    padding-top: 35px;
+    padding-bottom: 27px;
+  }
+}
+
+.reviews__title {
+  margin: 0 0 45px 3px;
+}
+@media (max-width: 1199px) {
+  .reviews__title {
+    margin: 0 0 40px;
+  }
+}
+@media (max-width: 767px) {
+  .reviews__title {
+    margin: 0 0 31px;
+  }
+}
+
+.reviews__slider {
+  margin: 0 0 40px;
+}
+@media (max-width: 1199px) {
+  .reviews__slider {
+    overflow: visible;
+  }
+}
+
+.reviews__list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+@media (max-width: 1199px) {
+  .reviews__list {
+    width: 560px;
+  }
+}
+
+.reviews__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: auto;
+  padding: 50px 49px 42px;
+  border: 1px solid #316dc2;
+  border-radius: 16px;
+  gap: 25px 0;
+}
+@media (max-width: 1199px) {
+  .reviews__item {
+    padding-bottom: 45px;
+  }
+}
+@media (max-width: 767px) {
+  .reviews__item {
+    padding: 30px 14px 24px;
+    gap: 24px 0;
+  }
+}
+
+.reviews__headline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0 15px;
+}
+.reviews__headline picture {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.reviews__headline img {
+  border-radius: 50%;
+}
+@media (max-width: 767px) {
+  .reviews__headline {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    gap: 14px 0;
+  }
+  .reviews__headline img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.reviews__person {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0 15px;
+}
+@media (max-width: 767px) {
+  .reviews__person {
+    gap: 0 10px;
+  }
+}
+
+.reviews__name {
+  max-width: 100px;
+  margin: 0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #316dc2;
+}
+@media (max-width: 1199px) {
+  .reviews__name {
+    font-size: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .reviews__name {
+    max-width: 90px;
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+
+.reviews__review {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 14px 0;
+}
+.reviews__review p {
+  margin: 0;
+}
+.reviews__review *:first-child {
+  font-size: 24px;
+  line-height: 26px;
+  color: #316dc2;
+}
+@media (max-width: 1199px) {
+  .reviews__review {
+    gap: 16px 0;
+  }
+  .reviews__review p {
+    line-height: 20px;
+  }
+  .reviews__review *:first-child {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+@media (max-width: 767px) {
+  .reviews__review {
+    gap: 15px 0;
+  }
+  .reviews__review p {
+    font-size: 14px;
+  }
+  .reviews__review *:first-child {
+    font-size: 16px;
+    line-height: 18px;
+  }
+}
+
+.reviews__controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0 52px;
+}
+@media (max-width: 1199px) {
+  .reviews__controls {
+    gap: 0 64px;
+  }
+}
+@media (max-width: 767px) {
+  .reviews__controls {
+    position: absolute;
+    top: 33px;
+    right: 15px;
+  }
+}
+
+.reviews__scrollbar {
+  width: 100%;
+  height: 2px;
+  margin: 0 0 2px;
+  background-color: rgba(49, 109, 194, 0.2);
+}
+@media (max-width: 767px) {
+  .reviews__scrollbar {
+    display: none;
+  }
+}
+
+.reviews__scrollbar .swiper-scrollbar-drag {
+  background-color: #316dc2;
+}
+
+.reviews__arrows {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: auto;
+  gap: 0 10px;
+}
+@media (max-width: 767px) {
+  .reviews__arrows {
+    gap: 0 8px;
+  }
+}
+
+.table {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 3px 1px 0 0;
+  padding: 0;
+  list-style-type: none;
+  gap: 10px 26px;
+}
+@media (max-width: 767px) {
+  .table {
+    margin: 0;
+  }
+}
+
+.table__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5px 0;
+}
+@media (max-width: 767px) {
+  .table__item {
+    gap: 7px 0;
+  }
+}
+
+.table__sign {
+  margin: 0;
+  font-size: 12px;
+  line-height: 12px;
+  color: #316dc2;
+  text-transform: uppercase;
+  letter-spacing: 0.12px;
+}
+
+.table__meaning {
+  margin: 0;
+  font-size: 14px;
+  line-height: 18px;
+}
+@media (max-width: 1199px) {
+  .table__meaning {
+    line-height: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .table__meaning {
+    font-size: 12px;
+    line-height: 14px;
+    opacity: 0.8;
+  }
+}
+
 /*@mixin focus {
     &.focus-visible:focus {
       @content;
