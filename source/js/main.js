@@ -9,6 +9,7 @@ import {addProgramsSlider} from './modules/actions/programs';
 import {addTabHandler} from './modules/actions/tabs';
 import {addNewsSlider} from './modules/actions/news';
 import {addReviewsSlider} from './modules/actions/reviews';
+import {addContactsMap} from './modules/actions/map';
 
 // ---------------------------------
 window.addEventListener('DOMContentLoaded', () => {
@@ -25,6 +26,7 @@ window.addEventListener('DOMContentLoaded', () => {
   addTabHandler();
   addNewsSlider();
   addReviewsSlider();
+  addContactsMap();
   // ---------------------------------
 
   // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
