@@ -27,15 +27,34 @@ const settings = {
 };
 
 const initModals = () => {
-  const modalElements = document.querySelectorAll('.modal');
-  modalElements.forEach((el) => {
-    setTimeout(() => {
-      el.classList.remove('modal--preload');
-    }, 100);
-  });
+  const modalContainer = document.querySelector('.modal__wrapper');
+  const modalPin = modalContainer.querySelector('.modal__close');
+  const modalTemplate = document.querySelector('.feedback__form');
+  const modalElement = modalTemplate.cloneNode(true);
+  modalContainer.insertBefore(modalElement, modalPin);
   modals = new Modals(settings);
   // Используйте в разработке экспортируемую переменную modals, window сделан для бэкэнда
   window.modals = modals;
 };
 
-export {modals, initModals};
+const addModalOpen = () => {
+  initModals(document.querySelector('.modal'));
+  document.querySelector('.btn__modal').addEventListener('click', () => {
+    window.modal.showModal();
+  });
+  document.querySelector('.modal__close').addEventListener('click', () => {
+    window.modal.close();
+  });
+
+  document.querySelector('.modal').addEventListener('click', closeOnBackDropClick);
+
+  function closeOnBackDropClick({currentTarget, target}) {
+    const dialogElement = currentTarget;
+    const isClickedOnBackDrop = target === dialogElement;
+    if (isClickedOnBackDrop) {
+      dialogElement.close();
+    }
+  }
+};
+
+export {modals, addModalOpen};
