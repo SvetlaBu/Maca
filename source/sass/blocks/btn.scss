@@ -61,7 +61,9 @@
     }
   }
 
-  @include hover-focus {
+  &:hover,
+  &:focus,
+  &:focus-visible {
     background-color: $color-cerulean-blue;
     color: $color-default-white;
 
@@ -72,6 +74,12 @@
     svg {
       color: $color-cerulean-blue;
       transform: rotate(45deg);
+    }
+
+    &:focus-visible {
+      svg {
+        transform: none;
+      }
     }
   }
 
@@ -111,7 +119,9 @@
       color: $color-cerulean-blue;
     }
 
-    @include hover-focus {
+    &:hover,
+    &:focus,
+    &:focus-visible {
       color: $color-cerulean-blue;
       background-color: $color-default-white;
 

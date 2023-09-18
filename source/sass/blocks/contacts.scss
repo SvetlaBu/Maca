@@ -120,7 +120,8 @@
       transition: opacity $trans-default;
     }
 
-    @include hover-focus {
+    &:hover,
+    &:focus {
       &::before {
         opacity: 1;
       }
@@ -157,11 +158,18 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 500px;
+  min-height: 500px;
+  aspect-ratio: 1240/500;
   border-radius: 16px;
 
+  @include vp-1199 {
+    min-height: 240px;
+    aspect-ratio: 678/500;
+  }
+
   @include vp-767 {
-    height: 240px;
+    min-height: 240px;
+    aspect-ratio: 290/240;
   }
 
   img {

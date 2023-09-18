@@ -47,11 +47,6 @@
   max-width: 30%;
   display: inline-block;
 
-  @include vp-1199 {
-    top: 50px;
-    right: 45px;
-  }
-
   @include vp-767 {
     top: auto;
     right: auto;

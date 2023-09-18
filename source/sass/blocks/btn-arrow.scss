@@ -30,6 +30,15 @@
     }
   }
 
+  &:focus-visible {
+    color: $color-cerulean-blue;
+    background-color: $color-default-white;
+
+    svg {
+      transform: rotate(45deg);
+    }
+  }
+
   @include active {
     color: rgba($color-cerulean-blue, 0.7);
   }

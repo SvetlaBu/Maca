@@ -1,4 +1,5 @@
 import {iosVhFix} from './utils/ios-vh-fix';
+import dialogPolyfill from 'dialog-polyfill';
 import {addModalOpen} from './modules/modals/init-modals';
 import {initAccordions} from './vendor/accordion/init-accordion';
 import {CustomSelect} from './vendor/select/custom-select';
@@ -33,6 +34,8 @@ window.addEventListener('DOMContentLoaded', () => {
   // в load следует добавить скрипты, не участвующие в работе первого экрана
   window.addEventListener('load', () => {
     addHeroSlider();
+    let dialog = document.querySelector('dialog');
+    dialogPolyfill.registerDialog(dialog);
     addModalOpen();
     const form = new Form();
     window.form = form;

@@ -15,7 +15,7 @@ const addContactsMap = () => {
 
     const map = createMap('map', {
       center: point,
-      zoom: 16,
+      zoom: 15,
       scrollWheelZoom: false,
     });
 

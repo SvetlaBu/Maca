@@ -26,10 +26,6 @@
   }
 }
 
-.footer__container > * {
-  align-self: center;
-}
-
 .footer__logo {
   color: $color-cerulean-blue;
   background-color: $color-default-white;
@@ -42,7 +38,9 @@
     margin: 0 0 1px;
   }
 
-  @include hover-focus {
+  &:hover,
+  &:focus,
+  &:focus-visible {
     color: $color-default-white;
     background-color: $color-cerulean-blue;
   }
@@ -113,9 +111,10 @@
     }
   }
 
-  @include hover-focus {
+  &:hover,
+  &:focus,
+  &:focus-visible {
     color: $color-cerulean-blue;
-    text-decoration: underline;
 
     &::before {
       background-color: $color-cerulean-blue;

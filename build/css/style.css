@@ -2193,33 +2193,23 @@ button,
     right: 15px;
   }
 }
-@media (hover: hover) {
-  .btn:hover:not(.focus-visible) {
-    background-color: #316dc2;
-    color: #ffffff;
-  }
-  .btn:hover:not(.focus-visible)::before {
-    background-color: #ffffff;
-  }
-  .btn:hover:not(.focus-visible) svg {
-    color: #316dc2;
-    -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-            transform: rotate(45deg);
-  }
-}
-.btn.focus-visible:focus {
+.btn:hover, .btn:focus, .btn:focus-visible {
   background-color: #316dc2;
   color: #ffffff;
 }
-.btn.focus-visible:focus::before {
+.btn:hover::before, .btn:focus::before, .btn:focus-visible::before {
   background-color: #ffffff;
 }
-.btn.focus-visible:focus svg {
+.btn:hover svg, .btn:focus svg, .btn:focus-visible svg {
   color: #316dc2;
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
+}
+.btn:hover:focus-visible svg, .btn:focus:focus-visible svg, .btn:focus-visible:focus-visible svg {
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
 }
 .btn.focus-visible:active {
   background-color: #316dc2;
@@ -2252,26 +2242,14 @@ button,
 .btn--secondary svg {
   color: #316dc2;
 }
-@media (hover: hover) {
-  .btn--secondary:hover:not(.focus-visible) {
-    color: #316dc2;
-    background-color: #ffffff;
-  }
-  .btn--secondary:hover:not(.focus-visible)::before {
-    background-color: #316dc2;
-  }
-  .btn--secondary:hover:not(.focus-visible) svg {
-    color: #ffffff;
-  }
-}
-.btn--secondary.focus-visible:focus {
+.btn--secondary:hover, .btn--secondary:focus, .btn--secondary:focus-visible {
   color: #316dc2;
   background-color: #ffffff;
 }
-.btn--secondary.focus-visible:focus::before {
+.btn--secondary:hover::before, .btn--secondary:focus::before, .btn--secondary:focus-visible::before {
   background-color: #316dc2;
 }
-.btn--secondary.focus-visible:focus svg {
+.btn--secondary:hover svg, .btn--secondary:focus svg, .btn--secondary:focus-visible svg {
   color: #ffffff;
 }
 .btn--secondary.focus-visible:active {
@@ -2325,6 +2303,15 @@ button,
   background-color: #ffffff;
 }
 .btn-arrow.focus-visible:focus svg {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.btn-arrow:focus-visible {
+  color: #316dc2;
+  background-color: #ffffff;
+}
+.btn-arrow:focus-visible svg {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
@@ -2543,13 +2530,15 @@ button,
   display: flex;
   border: none;
   padding: 0;
-  overflow-y: hidden;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   border-radius: 16px;
   margin-top: 80px;
+  -webkit-transform: scale(0.8);
+      -ms-transform: scale(0.8);
+          transform: scale(0.8);
 }
 .modal::-webkit-backdrop {
   background-color: rgba(13, 29, 51, 0.2);
@@ -2909,6 +2898,10 @@ button,
   color: #ffffff;
   background-color: #316dc2;
 }
+.header__logo:focus-visible {
+  color: #ffffff;
+  background-color: #316dc2;
+}
 .header__logo.focus-visible:active {
   color: rgba(255, 255, 255, 0.7);
 }
@@ -2978,12 +2971,6 @@ button,
   }
 }
 
-.footer__container > * {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
 .footer__logo {
   color: #316dc2;
   background-color: #ffffff;
@@ -3000,13 +2987,7 @@ button,
     margin: 0 0 1px;
   }
 }
-@media (hover: hover) {
-  .footer__logo:hover:not(.focus-visible) {
-    color: #ffffff;
-    background-color: #316dc2;
-  }
-}
-.footer__logo.focus-visible:focus {
+.footer__logo:hover, .footer__logo:focus, .footer__logo:focus-visible {
   color: #ffffff;
   background-color: #316dc2;
 }
@@ -3100,20 +3081,10 @@ button,
     bottom: 1px;
   }
 }
-@media (hover: hover) {
-  .footer__politics:hover:not(.focus-visible) {
-    color: #316dc2;
-    text-decoration: underline;
-  }
-  .footer__politics:hover:not(.focus-visible)::before {
-    background-color: #316dc2;
-  }
-}
-.footer__politics.focus-visible:focus {
+.footer__politics:hover, .footer__politics:focus, .footer__politics:focus-visible {
   color: #316dc2;
-  text-decoration: underline;
 }
-.footer__politics.focus-visible:focus::before {
+.footer__politics:hover::before, .footer__politics:focus::before, .footer__politics:focus-visible::before {
   background-color: #316dc2;
 }
 .footer__politics.focus-visible:active {
@@ -3159,12 +3130,7 @@ button,
   -webkit-transition: color 0.3s ease;
   transition: color 0.3s ease;
 }
-@media (hover: hover) {
-  .menu__link:hover:not(.focus-visible) {
-    color: #316dc2;
-  }
-}
-.menu__link.focus-visible:focus {
+.menu__link:hover, .menu__link:focus, .menu__link:focus-visible {
   color: #316dc2;
 }
 .menu__link.focus-visible:active {
@@ -3240,12 +3206,7 @@ button,
     height: 12px;
   }
 }
-@media (hover: hover) {
-  .social__link:hover:not(.focus-visible) {
-    color: rgba(255, 255, 255, 0.7);
-  }
-}
-.social__link.focus-visible:focus {
+.social__link:hover, .social__link:focus, .social__link:focus-visible {
   color: rgba(255, 255, 255, 0.7);
 }
 .social__link.focus-visible:active {
@@ -3825,13 +3786,15 @@ button,
   display: flex;
   border: none;
   padding: 0;
-  overflow-y: hidden;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   border-radius: 16px;
   margin-top: 80px;
+  -webkit-transform: scale(0.8);
+      -ms-transform: scale(0.8);
+          transform: scale(0.8);
 }
 .modal::-webkit-backdrop {
   background-color: rgba(13, 29, 51, 0.2);
@@ -4068,12 +4031,6 @@ button,
   position: relative;
   max-width: 30%;
   display: inline-block;
-}
-@media (max-width: 1199px) {
-  .programs__btn {
-    top: 50px;
-    right: 45px;
-  }
 }
 @media (max-width: 767px) {
   .programs__btn {
@@ -5220,6 +5177,7 @@ button,
 @media (max-width: 1199px) {
   .news__item {
     max-width: 100%;
+    aspect-ratio: 324/350;
   }
   .news__item img {
     width: 100%;
@@ -5239,12 +5197,14 @@ button,
 @media (max-width: 767px) {
   .news__item {
     min-height: 330px;
+    aspect-ratio: 290/330;
   }
   .news__item img {
     min-height: 330px;
   }
   .news__item--bottom {
     min-height: 240px;
+    aspect-ratio: 290/230;
   }
   .news__item--bottom img {
     height: 75vw;
@@ -5724,6 +5684,12 @@ button,
   background-color: rgba(255, 255, 255, 0);
 }
 .answers__button.focus-visible:focus::before, .answers__button.focus-visible:focus::after {
+  background-color: #316dc2;
+}
+.answers__button:focus-visible {
+  background-color: rgba(255, 255, 255, 0);
+}
+.answers__button:focus-visible::before, .answers__button:focus-visible::after {
   background-color: #316dc2;
 }
 .answers__button:active {
@@ -6275,12 +6241,7 @@ button,
   -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
 }
-@media (hover: hover) {
-  .contacts__text--link:hover:not(.focus-visible)::before {
-    opacity: 1;
-  }
-}
-.contacts__text--link.focus-visible:focus::before {
+.contacts__text--link:hover::before, .contacts__text--link:focus::before {
   opacity: 1;
 }
 .contacts__text--link.focus-visible:active {
@@ -6317,12 +6278,20 @@ button,
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
-  height: 500px;
+  min-height: 500px;
+  aspect-ratio: 1240/500;
   border-radius: 16px;
+}
+@media (max-width: 1199px) {
+  .contacts__map {
+    min-height: 240px;
+    aspect-ratio: 678/500;
+  }
 }
 @media (max-width: 767px) {
   .contacts__map {
-    height: 240px;
+    min-height: 240px;
+    aspect-ratio: 290/240;
   }
 }
 .contacts__map img {
@@ -6456,6 +6425,53 @@ button,
   .feedback__btn {
     margin: 8px 0 0;
   }
+}
+
+dialog {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: fit-content;
+  margin: auto;
+  border: solid;
+  padding: 1em;
+  background: white;
+  color: black;
+  display: block;
+}
+
+dialog:not([open]) {
+  display: none;
+}
+
+dialog + .backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+._dialog_overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+dialog.fixed {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
 }
 
 /*@mixin focus {

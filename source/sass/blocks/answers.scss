@@ -242,6 +242,15 @@
     }
   }
 
+  &:focus-visible {
+    background-color: $color-transparent;
+
+    &::before,
+    &::after {
+      background-color: $color-cerulean-blue;
+    }
+  }
+
   &:active {
     background-color: $color-endeavour;
     border-color: $color-endeavour;

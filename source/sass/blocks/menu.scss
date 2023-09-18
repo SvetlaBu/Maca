@@ -24,7 +24,9 @@
   outline: none;
   transition: color $trans-default;
 
-  @include hover-focus {
+  &:hover,
+  &:focus,
+  &:focus-visible {
     color: $color-cerulean-blue;
   }
 
