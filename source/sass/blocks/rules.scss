@@ -51,6 +51,7 @@
 .rules__title {
   margin: 0 0 29px;
   color: inherit;
+  margin: 0 0 14px;
 
   @include vp-1199 {
     margin: 0 0 28px;
@@ -64,6 +65,11 @@
 .rules__question {
   display: flex;
   flex-wrap: wrap;
+
+  p {
+    line-height: 24.4px;
+    margin-bottom: 36px;
+  }
 
   &:last-child {
     align-self: flex-end;
@@ -114,7 +120,7 @@
   padding: 0;
   list-style-type: none;
   counter-reset: rules__list;
-  gap: 23px 0;
+  gap: 26.3px 0;
 
   li {
     position: relative;

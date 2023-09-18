@@ -172,6 +172,23 @@
     aspect-ratio: 290/240;
   }
 
+  .leaflet-div-icon {
+    background-color: transparent;
+    border: none;
+    width: 70px;
+    height: 70px;
+
+    @include vp-1199 {
+      width: 40px;
+      height: 40px;
+    }
+
+    @include vp-767 {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
   img {
     border-radius: 16px;
   }

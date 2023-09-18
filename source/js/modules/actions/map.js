@@ -1,11 +1,11 @@
-import {map as createMap, tileLayer as createTitleLayers, icon as createIcon, marker as createMarker} from '../../vendor/leaflet';
+import {map as createMap, tileLayer as createTitleLayers, icon as divIcon, marker as createMarker} from '../../vendor/leaflet';
 
 const addContactsMap = () => {
   if (document.querySelector('#map')) {
     document.querySelector('#map').querySelector('picture').remove();
 
     const point = [55.026474, 82.927511];
-    const coordinate = [55.02866061524442, 82.92813926753502];
+    const coordinate = [55.028898426913166, 82.92747319142414];
     const url = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
     const markerText = `
 <p>г. Новосибирск, ул. Щетинкина 68,</p>
@@ -19,9 +19,9 @@ const addContactsMap = () => {
       scrollWheelZoom: false,
     });
 
-    const icon = createIcon({
+    const icon = divIcon({
+      className: 'leaflet-div-icon',
       iconUrl: './img/svg/pin.svg',
-      iconSize: [70, 70],
     });
 
     createTitleLayers(url).addTo(map);
