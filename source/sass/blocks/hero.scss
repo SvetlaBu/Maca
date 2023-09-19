@@ -166,6 +166,7 @@
   @include vp-767 {
     flex-direction: column;
     margin: -5px 0 0;
+    width: 100%;
     padding: 0;
     background-color: $color-transparent;
 
@@ -175,7 +176,7 @@
 
     p {
       position: relative;
-      max-width: 90%;
+      width: 100%;
       padding: 0 14px 10px;
       font-size: 14px;
       background-color: $color-default-white;
@@ -199,7 +200,7 @@
   display: inline-block;
   line-height: 4.5;
   vertical-align: top;
-  width: 20%;
+  width: 38%;
 
   &::before {
     content: "";
@@ -218,7 +219,7 @@
 
   @include vp-767 {
     position: relative;
-    max-width: 63%;
+    width: 90%;
     margin: 0;
     padding: 10px 15px;
     background-color: $color-default-white;

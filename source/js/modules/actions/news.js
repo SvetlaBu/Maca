@@ -9,6 +9,7 @@ const addNewsSlider = () => {
       breakpoints: {
         0: {
           slidesPerView: 1,
+          spaceBetween: 20,
           grid: {
             rows: 2,
             fill: 'row',

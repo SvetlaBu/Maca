@@ -385,8 +385,8 @@
               </li>
             </ul>
             <div class="news__slider swiper">
-              <ul class="news__list swiper-wrapper">
-                <li class="news__item swiper-slide" data-sort="internships">
+              <div class="news__list swiper-wrapper">
+                <section class="news__item news__item--first swiper-slide" data-sort="internships">
                   <picture>
                     <source type="image/webp" media="(max-width: 1199px)" srcset="./img/news-interview-tablet@1x.webp, ./img/news-interview-tablet@2x.webp 2x" width="324" height="350">
                     <source type="image/webp" srcset="./img/news-interview-desktop@1x.webp, ./img/news-interview-desktop@2x.webp 2x" width="604" height="400">
@@ -405,8 +405,8 @@
                       </button>
                     </div>
                   </div>
-                </li>
-                <li class="news__item swiper-slide" data-sort="travel">
+                </section>
+                <section class="news__item swiper-slide" data-sort="travel">
                   <picture>
                     <source type="image/webp" media="(max-width: 1199px)" srcset="./img/news-travel-tablet@1x.webp, ./img/news-travel-tablet@2x.webp 2x" width="324" height="350">
                     <source type="image/webp" srcset="./img/news-travel-desktop@1x.webp, ./img/news-travel-desktop@2x.webp 2x" width="286" height="400">
@@ -425,8 +425,8 @@
                       </button>
                     </div>
                   </div>
-                </li>
-                <li class="news__item swiper-slide" data-sort="volunteering">
+                </section>
+                <section class="news__item swiper-slide" data-sort="volunteering">
                   <picture>
                     <source type="image/webp" media="(max-width: 1199px)" srcset="./img/news-volunteering-tablet@1x.webp, ./img/news-volunteering-tablet@2x.webp 2x" width="324" height="350">
                     <source type="image/webp" srcset="./img/news-volunteering-desktop@1x.webp, ./img/news-volunteering-desktop@2x.webp 2x" width="286" height="400">
@@ -445,8 +445,8 @@
                       </button>
                     </div>
                   </div>
-                </li>
-                <li class="news__item swiper-slide" data-sort="career">
+                </section>
+                <section class="news__item news__item--second swiper-slide" data-sort="career">
                   <picture>
                     <source type="image/webp" media="(max-width: 1199px)" srcset="./img/news-career-tablet@1x.webp, ./img/news-career-tablet@2x.webp 2x" width="324" height="350">
                     <source type="image/webp" srcset="./img/news-career-desktop@1x.webp, ./img/news-career-desktop@2x.webp 2x" width="286" height="400">
@@ -465,8 +465,8 @@
                       </button>
                     </div>
                   </div>
-                </li>
-                <li class="news__item news__item--bottom swiper-slide">
+                </section>
+                <section class="news__item news__item--bottom swiper-slide">
                   <picture>
                     <source type="image/webp" media="(max-width: 1199px)" srcset="./img/news-travel-tablet@1x.webp, ./img/news-travel-tablet@2x.webp 2x" width="324" height="350">
                     <source type="image/webp" srcset="./img/news-travel-desktop@1x.webp, ./img/news-travel-desktop@2x.webp 2x" width="286" height="400">
@@ -485,8 +485,8 @@
                       </button>
                     </div>
                   </div>
-                </li>
-                <li class="news__item news__item--bottom swiper-slide" data-sort="volunteering">
+                </section>
+                <section class="news__item news__item--bottom swiper-slide" data-sort="volunteering">
                   <picture>
                     <source type="image/webp" media="(max-width: 1199px)" srcset="./img/news-volunteering-tablet@1x.webp, ./img/news-volunteering-tablet@2x.webp 2x" width="324" height="350">
                     <source type="image/webp" srcset="./img/news-volunteering-desktop@1x.webp, ./img/news-volunteering-desktop@2x.webp 2x" width="286" height="400">
@@ -505,8 +505,8 @@
                       </button>
                     </div>
                   </div>
-                </li>
-                <li class="news__item news__item--bottom swiper-slide" data-sort="career">
+                </section>
+                <section class="news__item news__item--bottom swiper-slide" data-sort="career">
                   <picture>
                     <source type="image/webp" media="(max-width: 1199px)" srcset="./img/news-career-tablet@1x.webp, ./img/news-career-tablet@2x.webp 2x" width="324" height="350">
                     <source type="image/webp" srcset="./img/news-career-desktop@1x.webp, ./img/news-career-desktop@2x.webp 2x" width="286" height="400">
@@ -525,8 +525,8 @@
                       </button>
                     </div>
                   </div>
-                </li>
-                <li class="news__item news__item--bottom swiper-slide" data-sort="travel">
+                </section>
+                <section class="news__item news__item--bottom swiper-slide" data-sort="travel">
                   <picture>
                     <source type="image/webp" media="(max-width: 1199px)" srcset="./img/news-travel-tablet@1x.webp, ./img/news-travel-tablet@2x.webp 2x" width="324" height="350">
                     <source type="image/webp" srcset="./img/news-travel-desktop@1x.webp, ./img/news-travel-desktop@2x.webp 2x" width="286" height="400">
@@ -545,8 +545,8 @@
                       </button>
                     </div>
                   </div>
-                </li>
-              </ul>
+                </section>
+              </div>
             </div>
             <div class="news__controls">
               <button class="news__prev swiper-arrow" type="button">
@@ -563,7 +563,7 @@
             </div>
           </div>
         </section>
-        <section class="answers" id="reviews">
+        <section class="answers" id="answers">
           <div class="answers__container container">
             <h2 class="answers__title title">Вопросы и&nbsp;ответы</h2>
             <ul class="answers__list" data-accordion="parent">
