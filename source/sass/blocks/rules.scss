@@ -49,12 +49,11 @@
 }
 
 .rules__title {
-  margin: 0 0 29px;
   color: inherit;
   margin: 0 0 14px;
 
   @include vp-1199 {
-    margin: 0 0 28px;
+    margin: 0 0 8px;
   }
 
   @include vp-767 {
@@ -69,18 +68,17 @@
   p {
     line-height: 24.4px;
     margin-bottom: 36px;
+
+    @include vp-1199 {
+      line-height: 22px;
+      width: 78%;
+      margin-bottom: 36px;
+    }
   }
 
   &:last-child {
     align-self: flex-end;
   }
-
-  // picture {
-  //   height: 68%;
-  //   position: absolute;
-  //   z-index: 1;
-  //   bottom: 0;
-  // }
 
   img {
     height: 100%;
@@ -97,6 +95,8 @@
   }
 
   @include vp-1199 {
+    margin-top: 44px;
+
     p {
       margin: 0 0 42px;
       font-size: 28px;

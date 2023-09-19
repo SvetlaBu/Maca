@@ -8,7 +8,7 @@
   padding-bottom: 120px;
 
   @include vp-1199 {
-    padding-top: 50px;
+    padding-top: 48px;
     padding-bottom: 100px;
   }
 
@@ -25,7 +25,7 @@
   margin: 0 0 42px;
 
   @include vp-1199 {
-    margin: 1px 0 43px;
+    margin: 1px 0 40px;
   }
 
   @include vp-767 {
@@ -37,6 +37,10 @@
   padding-right: 242px;
   display: inline-block;
 
+  @include vp-1199 {
+    padding: 0;
+  }
+
   @include vp-767 {
     margin: 0 0 32px;
   }
@@ -47,6 +51,11 @@
   position: relative;
   max-width: 30%;
   display: inline-block;
+
+  @include vp-1199 {
+    top: 0;
+    max-width: 90%;
+  }
 
   @include vp-767 {
     top: auto;
@@ -108,15 +117,28 @@
   }
 
   @include vp-1199 {
+    aspect-ratio: 324/420;
+
     img {
       width: 100%;
+    }
+  }
+
+  &:first-of-type {
+    .programs__text {
+      padding: 1px 1.8% 2px 5.8%;
+
+      @include vp-1199 {
+        padding: 9px 18px 12px;
+      }
     }
   }
 }
 
 .programs__info {
   position: relative;
-  padding: 20px 50px 20px 20px;
+  padding: 0 13% 0 20px;
+  bottom: 20px;
 
   h3 {
     position: relative;
@@ -165,25 +187,29 @@
 }
 
 .programs__text {
-  padding: 20px 18px 14px;
   background-color: $color-default-white;
+  padding: 2px 1.8% 14px 5.8%;
   border-radius: 0 12px 12px 12px;
+  min-height: 78px;
 
   p {
     display: inline-block;
-    width: 239px;
-    margin: auto 0;
+    width: 80%;
+    margin-right: 5.1%;
     font-size: 14px;
     line-height: 18px;
+    vertical-align: middle;
   }
 
   @include vp-1199 {
     min-height: 77px;
-    padding: 7px 18px 10px;
+    padding: 9px 18px 12px;
 
     p {
       width: auto;
       max-width: 80%;
+      margin: 0;
+      margin-right: 4%;
       line-height: 20px;
     }
   }
@@ -201,9 +227,8 @@
 }
 
 .programs__arrow {
-  flex-shrink: 0;
-  bottom: 10px;
-  left: 10px;
+  left: 0;
+  vertical-align: middle;
 }
 
 .programs__controls {

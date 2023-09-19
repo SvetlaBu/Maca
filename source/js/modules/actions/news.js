@@ -9,7 +9,6 @@ const addNewsSlider = () => {
       breakpoints: {
         0: {
           slidesPerView: 1,
-          spaceBetween: 20,
           grid: {
             rows: 2,
             fill: 'row',
@@ -25,7 +24,6 @@ const addNewsSlider = () => {
         },
         1200: {
           slidesPerView: 'auto',
-          spaceBetween: 32,
           grid: {
             rows: 1,
           },
@@ -39,7 +37,7 @@ const addNewsSlider = () => {
         el: '.news__pagination',
         clickable: true,
         renderBullet: (index, className) => {
-          return `<button class="news__pagination-button ${className} type="button" aria-label="Перейти к ${index + 1} слайду">${index + 1}</button>`;
+          return `<button class="news__bullet ${className} type="button" aria-label="Перейти к ${index + 1} слайду">${index + 1}</button>`;
         },
       },
     });

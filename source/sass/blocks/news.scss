@@ -87,7 +87,10 @@
     letter-spacing: 0.24px;
   }
 
-  @include hover-focus {
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    outline: none;
     opacity: 1;
   }
 }
@@ -111,7 +114,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  max-width: 286px;
+  width: 23.1%;
+  margin-right: 2.58%;
   min-height: 400px;
   height: auto;
   background-color: $color-alabaster;
@@ -128,27 +132,36 @@
     height: 100%;
   }
 
-  &:first-child {
-    max-width: 48.6%;
+  &:first-of-type {
+    width: 48.6%;
 
     .news__content {
-      margin-right: 35.7%;
+      margin-right: 34.7%;
+
+      @include vp-1199 {
+        margin-right: 25.8%;
+      }
     }
 
     h3 {
-      max-width: 291px;
+      width: 74%;
       padding-top: 13px;
       padding-bottom: 2px;
     }
 
     p {
       max-width: 86%;
+
+      @include vp-1199 {
+        max-width: 76%;
+      }
     }
   }
 
   @include vp-1199 {
     max-width: 100%;
     aspect-ratio: 324/350;
+    min-height: 350px;
 
     img {
       width: 100%;
@@ -240,7 +253,7 @@
 
   h3 {
     position: relative;
-    max-width: 214px;
+    width: 90%;
     margin: 0;
     padding: 5px 11px 0 0;
     font-weight: 400;
@@ -308,6 +321,7 @@
     margin: 0;
     font-size: 14px;
     line-height: 18px;
+    vertical-align: middle;
   }
 
   @include vp-1199 {
@@ -332,8 +346,12 @@
 
 .news__button {
   flex-shrink: 0;
-  bottom: 10px;
-  left: 10px;
+  left: 8px;
+  vertical-align: middle;
+
+  @include vp-1199 {
+    left: 10px;
+  }
 }
 
 .news__controls {
@@ -352,15 +370,19 @@
   display: flex;
   justify-content: center;
   gap: 0 20px;
-  width: 50%;
-  margin-left: 4%;
+  margin-left: 8.4%;
+
+  @include vp-1199 {
+    margin-left: 0;
+    margin-right: 8%;
+  }
 
   @include vp-767 {
     gap: 0 16px;
   }
 }
 
-.news__pagination-button {
+.news__bullet {
   display: flex;
   justify-content: center;
   align-items: center;

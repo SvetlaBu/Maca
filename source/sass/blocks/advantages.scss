@@ -37,7 +37,7 @@
   display: flex;
   justify-content: space-between;
   margin: 22px 0 0 20px;
-  padding: 29px 43px 29px 59px;
+  padding: 6% 9.03% 6% 12.4%;
   border: 1px solid $color-alabaster;
   border-radius: 16px;
   gap: 0 10px;
@@ -55,6 +55,7 @@
   h3 {
     margin: 0;
     font-weight: 400;
+    width: 90%;
     font-size: 26px;
     line-height: 30px;
     text-transform: uppercase;
@@ -63,28 +64,9 @@
 
   p {
     margin: 0;
+    width: 100%;
     font-weight: 300;
     line-height: 20px;
-  }
-
-  &:nth-child(2n - 1) {
-    h3 {
-      width: 154px;
-    }
-
-    p {
-      width: 190px;
-    }
-  }
-
-  &:nth-child(2n) {
-    h3 {
-      width: 170px;
-    }
-
-    p {
-      width: 180px;
-    }
   }
 
   @include vp-1199 {
