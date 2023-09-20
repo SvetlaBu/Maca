@@ -25,9 +25,7 @@ const addToggleMenu = () => {
     document.addEventListener('keydown', onDocumentKeydown);
     document.addEventListener('click', isMenu);
     nav.addEventListener('click', onLinkClick);
-    window.scrollLock.disableScrolling();
     logo.removeAttribute('href');
-    window.focusLock.lock('[data-header]');
   };
 
   const closeMenu = () => {
@@ -37,9 +35,7 @@ const addToggleMenu = () => {
     document.removeEventListener('keydown', onDocumentKeydown);
     document.removeEventListener('click', isMenu);
     nav.removeEventListener('click', onLinkClick);
-    window.scrollLock.enableScrolling();
     logo.setAttribute('href', './');
-    window.focusLock.unlock('[data-header]');
   };
 
   toggle.addEventListener('click', () => {

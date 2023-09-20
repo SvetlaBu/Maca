@@ -73,6 +73,54 @@
   }
 }
 
+.hero__content--first,
+.hero__content--second {
+  padding-top: 415px;
+  padding-bottom: 56px;
+
+  @include vp-1199 {
+    padding-top: 410px;
+    padding-bottom: 72px;
+  }
+
+  @include vp-767 {
+    padding-top: 103px;
+    padding-bottom: 0;
+  }
+
+  h3 {
+    padding: 40px 50px 34px;
+
+    @include vp-1199 {
+      padding: 30px 40px 20px;
+    }
+
+    @include vp-767 {
+      padding: 20px 13px 16px;
+    }
+  }
+
+  .hero__btn {
+    top: -10px;
+
+    @include vp-1199 {
+      top: -1px;
+    }
+  }
+
+  .hero__info {
+    padding: 0 4% 20px;
+
+    @include vp-1199 {
+      padding: 4px 6% 20px;
+    }
+
+    @include vp-767 {
+      padding: 0 0 20px;
+    }
+  }
+}
+
 .swiper-slide-active > .hero__content {
   visibility: visible;
 }
@@ -200,7 +248,7 @@
   display: inline-block;
   line-height: 4.5;
   vertical-align: top;
-  width: 38%;
+  width: 28%;
 
   &::before {
     content: "";
@@ -215,6 +263,7 @@
   @include vp-1199 {
     line-height: 3.8;
     margin: 0;
+    width: 38%;
   }
 
   @include vp-767 {

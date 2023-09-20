@@ -8,7 +8,7 @@ const initModals = () => {
 
 const addModalOpen = () => {
   initModals(document.querySelector('.modal'));
-  document.querySelector('.btn__modal').addEventListener('click', () => {
+  document.querySelector('.btn--modal').addEventListener('click', () => {
     window.modal.showModal();
   });
   document.querySelector('.modal__close').addEventListener('click', () => {

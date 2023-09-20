@@ -45,10 +45,6 @@
         & + .custom-toggle__icon {
           background-color: $color-mischka;
           border-color: $color-mischka;
-
-          &::before {
-            background-image: url('data:image/svg+xml,\<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">\<path d="M1 3.5L3.94737 7L9 1" stroke="%23ffffff" stroke-linecap="round" stroke-linejoin="round"/>\</svg>');
-          }
         }
       }
     }
@@ -86,35 +82,20 @@
       &:focus-visible {
         & + .custom-toggle__icon {
           background-color: $color-transparent;
+        }
 
-          &::before {
-            background-image: url('data:image/svg+xml,\<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">\<path d="M1 3.5L3.94737 7L9 1" stroke="%23484848" stroke-linecap="round" stroke-linejoin="round"/>\</svg>');
-          }
+        &::before {
+          background-image: url('data:image/svg+xml,\<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">\<path d="M1 3.5L3.94737 7L9 1" stroke="%23484848" stroke-linecap="round" stroke-linejoin="round"/>\</svg>');
         }
       }
 
-      &:checked {
-        &:disabled {
-          & + .custom-toggle__icon {
-            background-color: $color-mischka;
-            border-color: $color-mischka;
-
-            &::before {
-              background-image: url('data:image/svg+xml,\<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">\<path d="M1 3.5L3.94737 7L9 1" stroke="%23ffffff" stroke-linecap="round" stroke-linejoin="round"/>\</svg>');
-            }
-          }
-        }
+      &:disabled + .custom-toggle__icon {
+        background-color: $color-mischka;
+        border-color: $color-mischka;
       }
 
       @include hover-focus {
         & + .custom-toggle__icon {
-          border-color: $color-charcoal;
-        }
-      }
-
-      &:disabled {
-        & + .custom-toggle__icon {
-          background-color: rgba($color-charcoal, 0.6);
           border-color: $color-charcoal;
         }
       }

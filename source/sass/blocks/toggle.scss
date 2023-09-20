@@ -36,13 +36,16 @@
     }
   }
 
-  @include hover-focus {
+  &:hover,
+  &:focus,
+  &:focus-visible,
+  &:visited {
     svg {
       transform: rotate(0);
     }
   }
 
-  @include active {
+  &:active {
     svg {
       transform: rotate(0);
     }
