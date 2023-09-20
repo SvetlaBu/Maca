@@ -4,6 +4,7 @@
 @import "vendor/normalize";
 // Swiper 8.4.7
 @import "vendor/swiper";
+@import "vendor/leaflet";
 
 // Global
 // ---------------------------------
@@ -23,7 +24,6 @@
 @import "blocks/swiper-arrow";
 @import "blocks/toggle";
 @import "blocks/title";
-@import "blocks/modal";
 @import "blocks/nav";
 @import "blocks/header";
 @import "blocks/footer";
@@ -42,6 +42,9 @@
 @import "blocks/answers";
 @import "blocks/reviews";
 @import "blocks/table";
+@import "blocks/contacts";
+@import "blocks/feedback";
+@import "blocks/dialog";
 // ---------------------------------
 
 // ❗❗❗ запрещено использовать изображения в css, касается как jpg \ png, так и svg

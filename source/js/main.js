@@ -1,5 +1,6 @@
 import {iosVhFix} from './utils/ios-vh-fix';
-import {initModals} from './modules/modals/init-modals';
+import dialogPolyfill from 'dialog-polyfill';
+import {addModalOpen} from './modules/modals/init-modals';
 import {initAccordions} from './vendor/accordion/init-accordion';
 import {CustomSelect} from './vendor/select/custom-select';
 import {Form} from './modules/form-validate/form';
@@ -9,6 +10,7 @@ import {addProgramsSlider} from './modules/actions/programs';
 import {addTabHandler} from './modules/actions/tabs';
 import {addNewsSlider} from './modules/actions/news';
 import {addReviewsSlider} from './modules/actions/reviews';
+import {addContactsMap} from './modules/actions/map';
 
 // ---------------------------------
 window.addEventListener('DOMContentLoaded', () => {
@@ -25,13 +27,16 @@ window.addEventListener('DOMContentLoaded', () => {
   addTabHandler();
   addNewsSlider();
   addReviewsSlider();
+  addContactsMap();
   // ---------------------------------
 
   // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
   // в load следует добавить скрипты, не участвующие в работе первого экрана
   window.addEventListener('load', () => {
-    initModals();
     addHeroSlider();
+    let dialog = document.querySelector('dialog');
+    dialogPolyfill.registerDialog(dialog);
+    addModalOpen();
     const form = new Form();
     window.form = form;
     form.init();
