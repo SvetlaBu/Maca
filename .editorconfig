@@ -20,3 +20,8 @@ trim_trailing_whitespace = true
 
 [*.md]
 trim_trailing_whitespace = false
+
+[*leaflet*]
+trim_trailing_whitespace = false
+indent_size = 2
+indent_style = tab
