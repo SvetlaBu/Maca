@@ -3409,7 +3409,7 @@ button,
   }
   .hero__info p {
     position: relative;
-    width: 100%;
+    width: 90%;
     padding: 0 14px 10px;
     font-size: 14px;
     background-color: #ffffff;
@@ -3451,9 +3451,9 @@ button,
 @media (max-width: 767px) {
   .hero__action {
     position: relative;
-    width: 90%;
+    width: 62.3%;
     margin: 0;
-    padding: 10px 15px;
+    padding: 1px 15px;
     background-color: #ffffff;
     border-radius: 0 0 14px 14px;
   }
@@ -3601,6 +3601,7 @@ button,
   .about__info p {
     max-width: 100%;
     font-size: 14px;
+    margin-bottom: 14px;
   }
 }
 
@@ -3682,7 +3683,7 @@ button,
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 22px 0 0 20px;
+  margin: 22.4px 0 0 20px;
   padding: 6% 9.03% 6% 12.4%;
   border: 1px solid #f0efe9;
   border-radius: 16px;
@@ -4015,7 +4016,7 @@ button,
 }
 @media (max-width: 767px) {
   .programs__title {
-    margin: 0 0 32px;
+    margin: 0 auto 2px 0;
   }
 }
 
@@ -4033,9 +4034,10 @@ button,
 }
 @media (max-width: 767px) {
   .programs__btn {
+    position: absolute;
+    bottom: 68px;
     top: auto;
     right: auto;
-    bottom: 67px;
     left: 15px;
     padding-right: 68px;
     padding-left: 29px;
@@ -4106,12 +4108,22 @@ button,
     width: 100%;
   }
 }
+@media (max-width: 767px) {
+  .programs__item {
+    aspect-ratio: 290/400;
+  }
+}
 .programs__item:first-of-type .programs__text {
   padding: 1px 1.8% 2px 5.8%;
 }
 @media (max-width: 1199px) {
   .programs__item:first-of-type .programs__text {
     padding: 9px 18px 12px;
+  }
+}
+@media (max-width: 767px) {
+  .programs__item:first-of-type .programs__text {
+    padding: 10px 18px 8px;
   }
 }
 
@@ -4154,11 +4166,12 @@ button,
 }
 @media (max-width: 767px) {
   .programs__info {
-    padding: 18px 10px;
+    padding: 16px 10px;
+    bottom: 0;
   }
   .programs__info h3 {
     width: 146px;
-    padding: 18px 18px 6px;
+    padding: 18px 18px 8px;
     font-size: 16px;
     line-height: 18px;
   }
@@ -4197,7 +4210,7 @@ button,
     padding-bottom: 9px;
   }
   .programs__text p {
-    max-width: 100%;
+    max-width: 81%;
     font-size: 12px;
     line-height: 14px;
   }
@@ -4225,7 +4238,7 @@ button,
 @media (max-width: 767px) {
   .programs__controls {
     position: absolute;
-    top: 33px;
+    top: 35px;
     right: 15px;
   }
 }
@@ -4827,7 +4840,7 @@ button,
 @media (max-width: 767px) {
   .rules__container {
     padding-top: 69px;
-    padding-bottom: 67px;
+    padding-bottom: 70px;
   }
 }
 
@@ -4888,6 +4901,15 @@ button,
     margin-bottom: 36px;
   }
 }
+@media (max-width: 767px) {
+  .rules__question p {
+    font-size: 14px;
+    line-height: 20px;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 26px;
+  }
+}
 .rules__question:last-child {
   -ms-flex-item-align: end;
       align-self: flex-end;
@@ -4915,6 +4937,9 @@ button,
   }
 }
 @media (max-width: 767px) {
+  .rules__instructions {
+    margin-top: 34px;
+  }
   .rules__instructions p {
     margin: 0 0 26px;
     font-size: 18px;
@@ -5256,7 +5281,7 @@ button,
     padding-bottom: 4px;
   }
   .news__item:first-of-type p {
-    max-width: 80%;
+    max-width: 83%;
   }
 }
 
@@ -5375,7 +5400,7 @@ button,
     padding: 13px 10px 9px 0;
   }
   .news__text p {
-    max-width: 80%;
+    max-width: 82%;
     font-size: 12px;
     line-height: 14px;
   }
@@ -5430,6 +5455,7 @@ button,
 }
 @media (max-width: 767px) {
   .news__pagination {
+    margin-right: 0;
     gap: 0 16px;
   }
 }
@@ -5518,7 +5544,7 @@ button,
 @media (max-width: 767px) {
   .answers__container {
     padding-top: 34px;
-    padding-bottom: 35px;
+    padding-bottom: 37px;
     gap: 33px 0;
   }
 }
@@ -6439,7 +6465,7 @@ button,
     padding: 51px 15px 50px;
   }
   .feedback__form form {
-    gap: 21px 0;
+    gap: 22px 0;
   }
 }
 
