@@ -53,7 +53,8 @@
   flex-direction: column;
   height: auto;
   padding: 50px 49px 42px;
-  border: 1px solid $color-cerulean-blue;
+  outline-offset: -2px;
+  outline: 1px solid #316dc2;
   border-radius: 16px;
   gap: 25px 0;
 

@@ -24,6 +24,10 @@ html {
 
 body {
   margin: 0;
+
+  .scroll-lock {
+    overflow: hidden;
+  }
 }
 
 /**

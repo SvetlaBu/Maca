@@ -28,6 +28,7 @@ window.addEventListener('DOMContentLoaded', () => {
   addNewsSlider();
   addReviewsSlider();
   addContactsMap();
+  addModalOpen();
   // ---------------------------------
 
   // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
@@ -36,7 +37,6 @@ window.addEventListener('DOMContentLoaded', () => {
     addHeroSlider();
     let dialog = document.querySelector('dialog');
     dialogPolyfill.registerDialog(dialog);
-    addModalOpen();
     const form = new Form();
     window.form = form;
     form.init();

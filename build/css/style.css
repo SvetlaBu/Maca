@@ -28,6 +28,10 @@ body {
   margin: 0;
 }
 
+body .scroll-lock {
+  overflow: hidden;
+}
+
 /**
 * Render the `main` element consistently in IE.
 */
@@ -2252,7 +2256,7 @@ button,
 
 .container {
   width: 86.9%;
-  max-width: 1440px;
+  max-width: 12100px;
   margin: 0 auto;
   padding: 0 5px;
 }
@@ -2337,16 +2341,16 @@ button,
   transform: none;
 }
 
-.btn.focus-visible:active {
+.btn:active {
   background-color: #316dc2;
   color: rgba(255, 255, 255, 0.7);
 }
 
-.btn.focus-visible:active::before {
+.btn:active::before {
   background-color: #ffffff;
 }
 
-.btn.focus-visible:active svg {
+.btn:active svg {
   color: #316dc2;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -2395,16 +2399,16 @@ button,
   color: #ffffff;
 }
 
-.btn--secondary.focus-visible:active {
+.btn--secondary:active {
   color: rgba(49, 109, 194, 0.7);
   background-color: #ffffff;
 }
 
-.btn--secondary.focus-visible:active::before {
+.btn--secondary:active::before {
   background-color: #316dc2;
 }
 
-.btn--secondary.focus-visible:active svg {
+.btn--secondary:active svg {
   color: #ffffff;
 }
 
@@ -2552,29 +2556,35 @@ button,
   background-color: #ffffff;
 }
 
-.toggle.is-opened.focus-visible:focus {
+.toggle.is-opened:hover,
+.toggle.is-opened:focus,
+.toggle.is-opened:focus-visible {
   color: #316dc2;
   background-color: #ffffff;
 }
 
-.toggle.is-opened.focus-visible:focus::before {
+.toggle.is-opened:hover::before,
+.toggle.is-opened:focus::before,
+.toggle.is-opened:focus-visible::before {
   background-color: #316dc2;
 }
 
-.toggle.is-opened.focus-visible:focus .toggle__cross {
+.toggle.is-opened:hover .toggle__cross,
+.toggle.is-opened:focus .toggle__cross,
+.toggle.is-opened:focus-visible .toggle__cross {
   color: #ffffff;
 }
 
-.toggle.is-opened.focus-visible:active {
+.toggle.is-opened:active {
   color: rgba(49, 109, 194, 0.7);
   background-color: #ffffff;
 }
 
-.toggle.is-opened.focus-visible:active::before {
+.toggle.is-opened:active::before {
   background-color: #316dc2;
 }
 
-.toggle.is-opened.focus-visible:active .toggle__cross {
+.toggle.is-opened:active .toggle__cross {
   color: #ffffff;
 }
 
@@ -2685,7 +2695,9 @@ button,
   color: #ffffff;
 }
 
-.nav__link.focus-visible:focus {
+.nav__link:hover,
+.nav__link:focus,
+.nav__link:focus-visible {
   color: #ffffff;
 }
 
@@ -2721,6 +2733,12 @@ button,
   color: rgba(255, 255, 255, 0.6);
   text-transform: none;
   letter-spacing: normal;
+}
+
+.nav__subnav .nav__link:hover,
+.nav__subnav .nav__link:focus,
+.nav__subnav .nav__link:focus-visible {
+  color: #ffffff;
 }
 
 .nav__subnav .nav__link--current {
@@ -3347,13 +3365,40 @@ button,
   -ms-flex-direction: column;
   flex-direction: column;
   max-width: 510px;
-  gap: 18px 0;
+  gap: 4px 0;
+}
+
+.modal__wrapper .feedback__form form {
+  gap: 15.7px 0;
 }
 
 .modal__wrapper .feedback__form input,
 .modal__wrapper .feedback__form .custom-select__button,
 .modal__wrapper .feedback__form .custom-toggle__icon {
   border-color: rgba(72, 72, 72, 0.3);
+}
+
+.modal__wrapper .feedback__form input:hover,
+.modal__wrapper .feedback__form .custom-select__button:hover,
+.modal__wrapper .feedback__form .custom-toggle__icon:hover {
+  border-color: #727272;
+}
+
+.modal__wrapper .feedback__form input:focus,
+.modal__wrapper .feedback__form input:active,
+.modal__wrapper .feedback__form .custom-select__button:focus,
+.modal__wrapper .feedback__form .custom-select__button:active,
+.modal__wrapper .feedback__form .custom-toggle__icon:focus,
+.modal__wrapper .feedback__form .custom-toggle__icon:active {
+  border-color: #484848;
+}
+
+.modal__wrapper .feedback__form input:disabled,
+.modal__wrapper .feedback__form .custom-select__button:disabled,
+.modal__wrapper .feedback__form .custom-toggle__icon:disabled {
+  background-color: rgba(169, 175, 183, 0.2);
+  border-color: rgba(169, 175, 183, 0.5);
+  color: #a9afb7;
 }
 
 .modal__wrapper .feedback__form input,
@@ -3391,12 +3436,16 @@ button,
 }
 
 .modal__wrapper .feedback__text {
-  margin: 0 0 21px;
+  margin: 0 0 20px;
   text-align: center;
 }
 
+.modal__wrapper .custom-select {
+  margin-top: 2px;
+}
+
 .modal__wrapper .feedback__btn {
-  width: 60%;
+  width: 55%;
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
   align-self: center;
@@ -3411,8 +3460,8 @@ button,
 
 .modal__close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 26px;
+  right: 18px;
   z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3435,11 +3484,15 @@ button,
   transition: opacity 0.3s ease, color 0.3s ease;
 }
 
-.modal__close.focus-visible:focus {
+.modal__close:hover,
+.modal__close:focus,
+.modal__close:focus-visible {
+  outline: none;
+  border: none;
   opacity: 0.7;
 }
 
-.modal__close.focus-visible:active {
+.modal__close:active {
   color: #275699;
   opacity: 1;
 }
@@ -4088,8 +4141,8 @@ button,
   padding-top: 124px;
   padding-bottom: 107px;
   gap: 0 138px;
-  -ms-grid-columns: (498px)[2];
-  grid-template-columns: repeat(2, 498px);
+  -ms-grid-columns: (40.12%)[2];
+  grid-template-columns: repeat(2, 40.12%);
 }
 
 .rules__headline p {
@@ -4255,12 +4308,6 @@ button,
   width: 100%;
 }
 
-.news__list {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
 .news__item {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4272,8 +4319,8 @@ button,
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
+  max-width: 286px;
   width: 23.1%;
-  margin-right: 2.58%;
   min-height: 400px;
   height: auto;
   background-color: #f0efe9;
@@ -4294,6 +4341,7 @@ button,
 
 .news__item:first-of-type {
   width: 48.6%;
+  max-width: 604px;
 }
 
 .news__item:first-of-type .news__content {
@@ -4788,7 +4836,8 @@ button,
   flex-direction: column;
   height: auto;
   padding: 50px 49px 42px;
-  border: 1px solid #316dc2;
+  outline-offset: -2px;
+  outline: 1px solid #316dc2;
   border-radius: 16px;
   gap: 25px 0;
 }
@@ -5424,7 +5473,7 @@ dialog.fixed {
   }
 
   .modal__wrapper .feedback__title {
-    margin: 0 0 13px;
+    margin: 0 0 9px;
     font-size: 28px;
     line-height: 28px;
   }
@@ -5432,6 +5481,10 @@ dialog.fixed {
   .modal__wrapper .feedback__text {
     margin: 0 0 24px;
     line-height: 20px;
+  }
+
+  .modal__wrapper .feedback__btn {
+    margin: 16px 0 0;
   }
 
   .programs__container {
@@ -6089,12 +6142,43 @@ dialog.fixed {
   }
 
   .modal__wrapper .feedback__form {
-    gap: 15px 0;
+    gap: 5px 0;
     padding: 60px 10px 58px;
   }
 
+  .modal__wrapper .feedback__form form {
+    width: 89%;
+    margin: 0 auto;
+  }
+
+  .modal__wrapper .feedback__form label,
+  .modal__wrapper .feedback__form .custom-select {
+    gap: 6px 0;
+  }
+
+  .modal__wrapper .feedback__form .custom-input__label,
+  .modal__wrapper .feedback__form .custom-select__label {
+    font-size: 14px;
+  }
+
+  .modal__wrapper .feedback__form .custom-toggle__label {
+    font-size: 11.5px;
+    line-height: 12px;
+  }
+
+  .modal__wrapper .feedback__form input,
+  .modal__wrapper .feedback__form .custom-select__button {
+    padding: 10px 20px 12px;
+  }
+
+  .modal__wrapper .feedback__form .custom-select__button,
+  .modal__wrapper .feedback__form .custom-select__item {
+    padding: 8px 20px 10px;
+    min-height: 44px;
+  }
+
   .modal__wrapper .feedback__title {
-    margin: 0 0 8px;
+    margin: 0;
     font-size: 18px;
     line-height: 18px;
   }
@@ -6103,9 +6187,13 @@ dialog.fixed {
     -ms-flex-item-align: center;
     -ms-grid-row-align: center;
     align-self: center;
-    max-width: 90%;
-    margin: 0 0 20px;
+    max-width: 80%;
+    margin: 0 0 16px;
     font-size: 14px;
+  }
+
+  .modal__wrapper .custom-select {
+    margin-top: 0;
   }
 
   .modal__wrapper .feedback__btn {
@@ -6346,7 +6434,7 @@ dialog.fixed {
     align-self: flex-start;
     width: calc(100% + 15px);
     padding-right: 15px;
-    overflow-x: auto;
+    overflow-x: hidden;
     gap: 0 11px;
   }
 
@@ -6650,30 +6738,9 @@ dialog.fixed {
     background-color: #ffffff;
   }
 
-  .toggle.is-opened:hover:not(.focus-visible) {
-    color: #316dc2;
-    background-color: #ffffff;
-  }
-
-  .toggle.is-opened:hover:not(.focus-visible)::before {
-    background-color: #316dc2;
-  }
-
-  .toggle.is-opened:hover:not(.focus-visible) .toggle__cross {
-    color: #ffffff;
-  }
-
-  .nav__link:hover:not(.focus-visible) {
-    color: #ffffff;
-  }
-
   .header__logo:hover:not(.focus-visible) {
     color: #ffffff;
     background-color: #316dc2;
-  }
-
-  .modal__close:hover:not(.focus-visible) {
-    opacity: 0.7;
   }
 
   .custom-input label:hover:not(.focus-visible):not(:has(input:disabled, textarea:disabled)) .custom-input__label,

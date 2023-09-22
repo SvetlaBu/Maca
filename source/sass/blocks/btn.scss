@@ -83,7 +83,7 @@
     }
   }
 
-  @include active {
+  &:active {
     background-color: $color-cerulean-blue;
     color: rgba($color-default-white, 0.7);
 
@@ -134,7 +134,7 @@
       }
     }
 
-    @include active {
+    &:active {
       color: rgba($color-cerulean-blue, 0.7);
       background-color: $color-default-white;
 

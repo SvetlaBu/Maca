@@ -55,7 +55,7 @@
     align-self: flex-start;
     width: calc(100% + 15px);
     padding-right: 15px;
-    overflow-x: auto;
+    overflow-x: hidden;
     gap: 0 11px;
   }
 }
@@ -105,10 +105,6 @@
 }
 
 .news__list {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-
   @include vp-1199 {
     min-width: 50%;
   }
@@ -118,8 +114,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  max-width: 286px;
   width: 23.1%;
-  margin-right: 2.58%;
   min-height: 400px;
   height: auto;
   background-color: $color-alabaster;
@@ -138,6 +134,7 @@
 
   &:first-of-type {
     width: 48.6%;
+    max-width: 604px;
 
     .news__content {
       margin-right: 34.7%;
