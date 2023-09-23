@@ -1,15 +1,38 @@
 .modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
   display: flex;
-  border: none;
-  padding: 0;
   flex-direction: column;
-  border-radius: 16px;
-  margin-top: 90px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: rgba($color-black-pearl, 0.2);
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity $trans-modal,
+    transform $trans-modal,
+    visibility $trans-modal;
+  pointer-events: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
-  &::backdrop {
-    background-color: rgba(13, 29, 51, 0.4);
-    width: 100%;
-    height: 100%;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &--preload {
+    transition: none;
+  }
+
+  &.is-active {
+    transform: scale(1);
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
   }
 
   @include vp-1199 {
@@ -20,6 +43,10 @@
     margin-top: 24px;
     transform: scale(1.03);
   }
+}
+
+.modal.modal--preload {
+  display: none;
 }
 
 .modal__wrapper {

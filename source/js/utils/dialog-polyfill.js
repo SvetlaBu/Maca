@@ -1,15 +1,16 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global = global || self, global.dialogPolyfill = factory());
-}(this, function () { 'use strict';
+    typeof define === 'function' && define.amd ? define(factory) :
+      (global = global || self, global.dialogPolyfill = factory());
+}(this, function () {
+  'use strict';
 
   // nb. This is for IE10 and lower _only_.
-  var supportCustomEvent = window.CustomEvent;
+  let supportCustomEvent = window.CustomEvent;
   if (!supportCustomEvent || typeof supportCustomEvent === 'object') {
     supportCustomEvent = function CustomEvent(event, x) {
       x = x || {};
-      var ev = document.createEvent('CustomEvent');
+      let ev = document.createEvent('CustomEvent');
       ev.initCustomEvent(event, !!x.bubbles, !!x.cancelable, x.detail || null);
       return ev;
     };
@@ -25,7 +26,7 @@
    * @return {boolean}
    */
   function safeDispatchEvent(target, event) {
-    var check = 'on' + event.type.toLowerCase();
+    let check = 'on' + event.type.toLowerCase();
     if (typeof target[check] === 'function') {
       target[check](event);
     }
@@ -39,7 +40,7 @@
   function createsStackingContext(el) {
     while (el && el !== document.body) {
       var s = window.getComputedStyle(el);
-      var invalid = function(k, ok) {
+      let invalid = function (k, ok) {
         return !(s[k] === undefined || s[k] === ok);
       };
 
@@ -105,7 +106,7 @@
    * @return {boolean} whether node is inside nodeList
    */
   function inNodeList(nodeList, node) {
-    for (var i = 0; i < nodeList.length; ++i) {
+    for (let i = 0; i < nodeList.length; ++i) {
       if (nodeList[i] === node) {
         return true;
       }
@@ -131,20 +132,20 @@
   function findFocusableElementWithin(hostElement) {
     // Note that this is 'any focusable area'. This list is probably not exhaustive, but the
     // alternative involves stepping through and trying to focus everything.
-    var opts = ['button', 'input', 'keygen', 'select', 'textarea'];
-    var query = opts.map(function(el) {
+    let opts = ['button', 'input', 'keygen', 'select', 'textarea'];
+    let query = opts.map(function (el) {
       return el + ':not([disabled])';
     });
     // TODO(samthor): tabindex values that are not numeric are not focusable.
-    query.push('[tabindex]:not([disabled]):not([tabindex=""])');  // tabindex != "", not disabled
-    var target = hostElement.querySelector(query.join(', '));
+    query.push('[tabindex]:not([disabled]):not([tabindex=""])'); // tabindex != "", not disabled
+    let target = hostElement.querySelector(query.join(', '));
 
     if (!target && 'attachShadow' in Element.prototype) {
       // If we haven't found a focusable target, see if the host element contains an element
       // which has a shadowRoot.
       // Recursively search for the first focusable item in shadow roots.
-      var elems = hostElement.querySelectorAll('*');
-      for (var i = 0; i < elems.length; i++) {
+      let elems = hostElement.querySelectorAll('*');
+      for (let i = 0; i < elems.length; i++) {
         if (elems[i].tagName && elems[i].shadowRoot) {
           target = findFocusableElementWithin(elems[i].shadowRoot);
           if (target) {
@@ -174,15 +175,15 @@
       return event.submitter;
     }
 
-    var form = event.target;
+    let form = event.target;
     if (!(form instanceof HTMLFormElement)) {
       return null;
     }
 
-    var submitter = dialogPolyfill.formSubmitter;
+    let submitter = dialogPolyfill.formSubmitter;
     if (!submitter) {
-      var target = event.target;
-      var root = ('getRootNode' in target && target.getRootNode() || document);
+      let target = event.target;
+      let root = ('getRootNode' in target && target.getRootNode() || document);
       submitter = root.activeElement;
     }
 
@@ -199,24 +200,24 @@
     if (event.defaultPrevented) {
       return;
     }
-    var form = /** @type {!HTMLFormElement} */ (event.target);
+    let form = /** @type {!HTMLFormElement} */ (event.target);
 
     // We'd have a value if we clicked on an imagemap.
-    var value = dialogPolyfill.imagemapUseValue;
-    var submitter = findFormSubmitter(event);
+    let value = dialogPolyfill.imagemapUseValue;
+    let submitter = findFormSubmitter(event);
     if (value === null && submitter) {
       value = submitter.value;
     }
 
     // There should always be a dialog as this handler is added specifically on them, but check just
     // in case.
-    var dialog = findNearestDialog(form);
+    let dialog = findNearestDialog(form);
     if (!dialog) {
       return;
     }
 
     // Prefer formmethod on the button.
-    var formmethod = submitter && submitter.getAttribute('formmethod') || form.getAttribute('method');
+    let formmethod = submitter && submitter.getAttribute('formmethod') || form.getAttribute('method');
     if (formmethod !== 'dialog') {
       return;
     }
@@ -255,26 +256,28 @@
     }
 
     if ('MutationObserver' in window) {
-      var mo = new MutationObserver(this.maybeHideModal.bind(this));
+      let mo = new MutationObserver(this.maybeHideModal.bind(this));
       mo.observe(dialog, {attributes: true, attributeFilter: ['open']});
     } else {
       // IE10 and below support. Note that DOMNodeRemoved etc fire _before_ removal. They also
       // seem to fire even if the element was removed as part of a parent removal. Use the removed
       // events to force downgrade (useful if removed/immediately added).
-      var removed = false;
-      var cb = function() {
+      let removed = false;
+      let cb = function () {
         removed ? this.downgradeModal() : this.maybeHideModal();
         removed = false;
       }.bind(this);
-      var timeout;
-      var delayModel = function(ev) {
-        if (ev.target !== dialog) { return; }  // not for a child element
-        var cand = 'DOMNodeRemoved';
+      let timeout;
+      let delayModel = function (ev) {
+        if (ev.target !== dialog) {
+          return;
+        } // not for a child element
+        let cand = 'DOMNodeRemoved';
         removed |= (ev.type.substr(0, cand.length) === cand);
         window.clearTimeout(timeout);
         timeout = window.setTimeout(cb, 0);
       };
-      ['DOMAttrModified', 'DOMNodeRemoved', 'DOMNodeRemovedFromDocument'].forEach(function(name) {
+      ['DOMAttrModified', 'DOMNodeRemoved', 'DOMNodeRemovedFromDocument'].forEach(function (name) {
         dialog.addEventListener(name, delayModel);
       });
     }
@@ -283,14 +286,14 @@
 
     Object.defineProperty(dialog, 'open', {
       set: this.setOpen.bind(this),
-      get: dialog.hasAttribute.bind(dialog, 'open')
+      get: dialog.hasAttribute.bind(dialog, 'open'),
     });
 
     this.backdrop_ = document.createElement('div');
     this.backdrop_.className = 'backdrop';
-    this.backdrop_.addEventListener('mouseup'  , this.backdropMouseEvent_.bind(this));
+    this.backdrop_.addEventListener('mouseup', this.backdropMouseEvent_.bind(this));
     this.backdrop_.addEventListener('mousedown', this.backdropMouseEvent_.bind(this));
-    this.backdrop_.addEventListener('click'    , this.backdropMouseEvent_.bind(this));
+    this.backdrop_.addEventListener('click', this.backdropMouseEvent_.bind(this));
   }
 
   dialogPolyfillInfo.prototype = /** @type {HTMLDialogElement.prototype} */ ({
@@ -304,16 +307,20 @@
      * a modal dialog may no longer be tenable, e.g., when the dialog is no
      * longer open or is no longer part of the DOM.
      */
-    maybeHideModal: function() {
-      if (this.dialog_.hasAttribute('open') && isConnected(this.dialog_)) { return; }
+    maybeHideModal() {
+      if (this.dialog_.hasAttribute('open') && isConnected(this.dialog_)) {
+        return;
+      }
       this.downgradeModal();
     },
 
     /**
      * Remove this dialog from the modal top layer, leaving it as a non-modal.
      */
-    downgradeModal: function() {
-      if (!this.openAsModal_) { return; }
+    downgradeModal() {
+      if (!this.openAsModal_) {
+        return;
+      }
       this.openAsModal_ = false;
       this.dialog_.style.zIndex = '';
 
@@ -333,12 +340,12 @@
     /**
      * @param {boolean} value whether to open or close this dialog
      */
-    setOpen: function(value) {
+    setOpen(value) {
       if (value) {
         this.dialog_.hasAttribute('open') || this.dialog_.setAttribute('open', '');
       } else {
         this.dialog_.removeAttribute('open');
-        this.maybeHideModal();  // nb. redundant with MutationObserver
+        this.maybeHideModal(); // nb. redundant with MutationObserver
       }
     },
 
@@ -348,12 +355,12 @@
      *
      * @param {!Event} e to redirect
      */
-    backdropMouseEvent_: function(e) {
+    backdropMouseEvent_(e) {
       if (!this.dialog_.hasAttribute('tabindex')) {
         // Clicking on the backdrop should move the implicit cursor, even if dialog cannot be
         // focused. Create a fake thing to focus on. If the backdrop was _before_ the dialog, this
         // would not be needed - clicks would move the implicit cursor there.
-        var fake = document.createElement('div');
+        let fake = document.createElement('div');
         this.dialog_.insertBefore(fake, this.dialog_.firstChild);
         fake.tabIndex = -1;
         fake.focus();
@@ -362,7 +369,7 @@
         this.dialog_.focus();
       }
 
-      var redirectedEvent = document.createEvent('MouseEvents');
+      let redirectedEvent = document.createEvent('MouseEvents');
       redirectedEvent.initMouseEvent(e.type, e.bubbles, e.cancelable, window,
           e.detail, e.screenX, e.screenY, e.clientX, e.clientY, e.ctrlKey,
           e.altKey, e.shiftKey, e.metaKey, e.button, e.relatedTarget);
@@ -374,9 +381,9 @@
      * Focuses on the first focusable element within the dialog. This will always blur the current
      * focus, even if nothing within the dialog is found.
      */
-    focus_: function() {
+    focus_() {
       // Find element with `autofocus` attribute, or fall back to the first form/tabindex control.
-      var target = this.dialog_.querySelector('[autofocus]:not([disabled])');
+      let target = this.dialog_.querySelector('[autofocus]:not([disabled])');
       if (!target && this.dialog_.tabIndex >= 0) {
         target = this.dialog_;
       }
@@ -393,7 +400,7 @@
      * @param {number} dialogZ
      * @param {number} backdropZ
      */
-    updateZIndex: function(dialogZ, backdropZ) {
+    updateZIndex(dialogZ, backdropZ) {
       if (dialogZ < backdropZ) {
         throw new Error('dialogZ should never be < backdropZ');
       }
@@ -404,7 +411,7 @@
     /**
      * Shows the dialog. If the dialog is already open, this does nothing.
      */
-    show: function() {
+    show() {
       if (!this.dialog_.open) {
         this.setOpen(true);
         this.focus_();
@@ -414,7 +421,7 @@
     /**
      * Show this dialog modally.
      */
-    showModal: function() {
+    showModal() {
       if (this.dialog_.hasAttribute('open')) {
         throw new Error('Failed to execute \'showModal\' on dialog: The element is already open, and therefore cannot be opened modally.');
       }
@@ -455,7 +462,7 @@
      *
      * @param {string=} opt_returnValue to use as the returnValue
      */
-    close: function(opt_returnValue) {
+    close(opt_returnValue) {
       if (!this.dialog_.hasAttribute('open')) {
         throw new Error('Failed to execute \'close\' on dialog: The element does not have an \'open\' attribute, and therefore cannot be closed.');
       }
@@ -467,44 +474,46 @@
       }
 
       // Triggering "close" event for any attached listeners on the <dialog>.
-      var closeEvent = new supportCustomEvent('close', {
+      let closeEvent = new supportCustomEvent('close', {
         bubbles: false,
-        cancelable: false
+        cancelable: false,
       });
       safeDispatchEvent(this.dialog_, closeEvent);
-    }
+    },
 
   });
 
   var dialogPolyfill = {};
 
-  dialogPolyfill.reposition = function(element) {
-    var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-    var topValue = scrollTop + (window.innerHeight - element.offsetHeight) / 2;
+  dialogPolyfill.reposition = function (element) {
+    let scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+    let topValue = scrollTop + (window.innerHeight - element.offsetHeight) / 2;
     element.style.top = Math.max(scrollTop, topValue) + 'px';
   };
 
-  dialogPolyfill.isInlinePositionSetByStylesheet = function(element) {
-    for (var i = 0; i < document.styleSheets.length; ++i) {
-      var styleSheet = document.styleSheets[i];
-      var cssRules = null;
+  dialogPolyfill.isInlinePositionSetByStylesheet = function (element) {
+    for (let i = 0; i < document.styleSheets.length; ++i) {
+      let styleSheet = document.styleSheets[i];
+      let cssRules = null;
       // Some browsers throw on cssRules.
       try {
         cssRules = styleSheet.cssRules;
       } catch (e) {}
-      if (!cssRules) { continue; }
-      for (var j = 0; j < cssRules.length; ++j) {
-        var rule = cssRules[j];
-        var selectedNodes = null;
+      if (!cssRules) {
+        continue;
+      }
+      for (let j = 0; j < cssRules.length; ++j) {
+        let rule = cssRules[j];
+        let selectedNodes = null;
         // Ignore errors on invalid selector texts.
         try {
           selectedNodes = document.querySelectorAll(rule.selectorText);
-        } catch(e) {}
+        } catch (e) {}
         if (!selectedNodes || !inNodeList(selectedNodes, element)) {
           continue;
         }
-        var cssTop = rule.style.getPropertyValue('top');
-        var cssBottom = rule.style.getPropertyValue('bottom');
+        let cssTop = rule.style.getPropertyValue('top');
+        let cssBottom = rule.style.getPropertyValue('bottom');
         if ((cssTop && cssTop !== 'auto') || (cssBottom && cssBottom !== 'auto')) {
           return true;
         }
@@ -513,8 +522,8 @@
     return false;
   };
 
-  dialogPolyfill.needsCentering = function(dialog) {
-    var computedStyle = window.getComputedStyle(dialog);
+  dialogPolyfill.needsCentering = function (dialog) {
+    let computedStyle = window.getComputedStyle(dialog);
     if (computedStyle.position !== 'absolute') {
       return false;
     }
@@ -533,7 +542,7 @@
   /**
    * @param {!Element} element to force upgrade
    */
-  dialogPolyfill.forceRegisterDialog = function(element) {
+  dialogPolyfill.forceRegisterDialog = function (element) {
     if (window.HTMLDialogElement || element.showModal) {
       console.warn('This browser already supports <dialog>, the polyfill ' +
           'may not work correctly', element);
@@ -547,7 +556,7 @@
   /**
    * @param {!Element} element to upgrade, if necessary
    */
-  dialogPolyfill.registerDialog = function(element) {
+  dialogPolyfill.registerDialog = function (element) {
     if (!element.showModal) {
       dialogPolyfill.forceRegisterDialog(element);
     }
@@ -556,11 +565,11 @@
   /**
    * @constructor
    */
-  dialogPolyfill.DialogManager = function() {
+  dialogPolyfill.DialogManager = function () {
     /** @type {!Array<!dialogPolyfillInfo>} */
     this.pendingDialogStack = [];
 
-    var checkDOM = this.checkDOM_.bind(this);
+    let checkDOM = this.checkDOM_.bind(this);
 
     // The overlay is used to simulate how a modal dialog blocks the document.
     // The blocking dialog is positioned on top of the overlay, and the rest of
@@ -569,10 +578,10 @@
     // top layer, where z-index has no effect.
     this.overlay = document.createElement('div');
     this.overlay.className = '_dialog_overlay';
-    this.overlay.addEventListener('click', function(e) {
+    this.overlay.addEventListener('click', function (e) {
       this.forwardTab_ = undefined;
       e.stopPropagation();
-      checkDOM([]);  // sanity-check DOM
+      checkDOM([]); // sanity-check DOM
     }.bind(this));
 
     this.handleKey_ = this.handleKey_.bind(this);
@@ -584,9 +593,9 @@
     this.forwardTab_ = undefined;
 
     if ('MutationObserver' in window) {
-      this.mo_ = new MutationObserver(function(records) {
-        var removed = [];
-        records.forEach(function(rec) {
+      this.mo_ = new MutationObserver(function (records) {
+        let removed = [];
+        records.forEach(function (rec) {
           for (var i = 0, c; c = rec.removedNodes[i]; ++i) {
             if (!(c instanceof Element)) {
               continue;
@@ -605,7 +614,7 @@
    * Called on the first modal dialog being shown. Adds the overlay and related
    * handlers.
    */
-  dialogPolyfill.DialogManager.prototype.blockDocument = function() {
+  dialogPolyfill.DialogManager.prototype.blockDocument = function () {
     document.documentElement.addEventListener('focus', this.handleFocus_, true);
     document.addEventListener('keydown', this.handleKey_);
     this.mo_ && this.mo_.observe(document, {childList: true, subtree: true});
@@ -615,7 +624,7 @@
    * Called on the first modal dialog being removed, i.e., when no more modal
    * dialogs are visible.
    */
-  dialogPolyfill.DialogManager.prototype.unblockDocument = function() {
+  dialogPolyfill.DialogManager.prototype.unblockDocument = function () {
     document.documentElement.removeEventListener('focus', this.handleFocus_, true);
     document.removeEventListener('keydown', this.handleKey_);
     this.mo_ && this.mo_.disconnect();
@@ -624,8 +633,8 @@
   /**
    * Updates the stacking of all known dialogs.
    */
-  dialogPolyfill.DialogManager.prototype.updateStacking = function() {
-    var zIndex = this.zIndexHigh_;
+  dialogPolyfill.DialogManager.prototype.updateStacking = function () {
+    let zIndex = this.zIndexHigh_;
 
     for (var i = 0, dpi; dpi = this.pendingDialogStack[i]; ++i) {
       dpi.updateZIndex(--zIndex, --zIndex);
@@ -635,9 +644,9 @@
     }
 
     // Make the overlay a sibling of the dialog itself.
-    var last = this.pendingDialogStack[0];
+    let last = this.pendingDialogStack[0];
     if (last) {
-      var p = last.dialog.parentNode || document.body;
+      let p = last.dialog.parentNode || document.body;
       p.appendChild(this.overlay);
     } else if (this.overlay.parentNode) {
       this.overlay.parentNode.removeChild(this.overlay);
@@ -648,11 +657,11 @@
    * @param {Element} candidate to check if contained or is the top-most modal dialog
    * @return {boolean} whether candidate is contained in top dialog
    */
-  dialogPolyfill.DialogManager.prototype.containedByTopDialog_ = function(candidate) {
+  dialogPolyfill.DialogManager.prototype.containedByTopDialog_ = function (candidate) {
     while (candidate = findNearestDialog(candidate)) {
       for (var i = 0, dpi; dpi = this.pendingDialogStack[i]; ++i) {
         if (dpi.dialog === candidate) {
-          return i === 0;  // only valid if top-most
+          return i === 0; // only valid if top-most
         }
       }
       candidate = candidate.parentElement;
@@ -660,22 +669,28 @@
     return false;
   };
 
-  dialogPolyfill.DialogManager.prototype.handleFocus_ = function(event) {
-    var target = event.composedPath ? event.composedPath()[0] : event.target;
+  dialogPolyfill.DialogManager.prototype.handleFocus_ = function (event) {
+    let target = event.composedPath ? event.composedPath()[0] : event.target;
 
-    if (this.containedByTopDialog_(target)) { return; }
+    if (this.containedByTopDialog_(target)) {
+      return;
+    }
 
-    if (document.activeElement === document.documentElement) { return; }
+    if (document.activeElement === document.documentElement) {
+      return;
+    }
 
     event.preventDefault();
     event.stopPropagation();
     safeBlur(/** @type {Element} */ (target));
 
-    if (this.forwardTab_ === undefined) { return; }  // move focus only from a tab key
+    if (this.forwardTab_ === undefined) {
+      return;
+    } // move focus only from a tab key
 
-    var dpi = this.pendingDialogStack[0];
-    var dialog = dpi.dialog;
-    var position = dialog.compareDocumentPosition(target);
+    let dpi = this.pendingDialogStack[0];
+    let dialog = dpi.dialog;
+    let position = dialog.compareDocumentPosition(target);
     if (position & Node.DOCUMENT_POSITION_PRECEDING) {
       if (this.forwardTab_) {
         // forward
@@ -689,16 +704,16 @@
     return false;
   };
 
-  dialogPolyfill.DialogManager.prototype.handleKey_ = function(event) {
+  dialogPolyfill.DialogManager.prototype.handleKey_ = function (event) {
     this.forwardTab_ = undefined;
     if (event.keyCode === 27) {
       event.preventDefault();
       event.stopPropagation();
-      var cancelEvent = new supportCustomEvent('cancel', {
+      let cancelEvent = new supportCustomEvent('cancel', {
         bubbles: false,
-        cancelable: true
+        cancelable: true,
       });
-      var dpi = this.pendingDialogStack[0];
+      let dpi = this.pendingDialogStack[0];
       if (dpi && safeDispatchEvent(dpi.dialog, cancelEvent)) {
         dpi.dialog.close();
       }
@@ -713,12 +728,12 @@
    *
    * @param {!Array<!HTMLDialogElement>} removed that have definitely been removed
    */
-  dialogPolyfill.DialogManager.prototype.checkDOM_ = function(removed) {
+  dialogPolyfill.DialogManager.prototype.checkDOM_ = function (removed) {
     // This operates on a clone because it may cause it to change. Each change also calls
     // updateStacking, which only actually needs to happen once. But who removes many modal dialogs
     // at a time?!
-    var clone = this.pendingDialogStack.slice();
-    clone.forEach(function(dpi) {
+    let clone = this.pendingDialogStack.slice();
+    clone.forEach(function (dpi) {
       if (removed.indexOf(dpi.dialog) !== -1) {
         dpi.downgradeModal();
       } else {
@@ -731,8 +746,8 @@
    * @param {!dialogPolyfillInfo} dpi
    * @return {boolean} whether the dialog was allowed
    */
-  dialogPolyfill.DialogManager.prototype.pushDialog = function(dpi) {
-    var allowed = (this.zIndexHigh_ - this.zIndexLow_) / 2 - 1;
+  dialogPolyfill.DialogManager.prototype.pushDialog = function (dpi) {
+    let allowed = (this.zIndexHigh_ - this.zIndexLow_) / 2 - 1;
     if (this.pendingDialogStack.length >= allowed) {
       return false;
     }
@@ -746,9 +761,11 @@
   /**
    * @param {!dialogPolyfillInfo} dpi
    */
-  dialogPolyfill.DialogManager.prototype.removeDialog = function(dpi) {
-    var index = this.pendingDialogStack.indexOf(dpi);
-    if (index === -1) { return; }
+  dialogPolyfill.DialogManager.prototype.removeDialog = function (dpi) {
+    let index = this.pendingDialogStack.indexOf(dpi);
+    if (index === -1) {
+      return;
+    }
 
     this.pendingDialogStack.splice(index, 1);
     if (this.pendingDialogStack.length === 0) {
@@ -771,23 +788,23 @@
      * If HTMLFormElement translates method="DIALOG" into 'get', then replace the descriptor with
      * one that returns the correct value.
      */
-    var testForm = document.createElement('form');
+    let testForm = document.createElement('form');
     testForm.setAttribute('method', 'dialog');
     if (testForm.method !== 'dialog') {
-      var methodDescriptor = Object.getOwnPropertyDescriptor(HTMLFormElement.prototype, 'method');
+      let methodDescriptor = Object.getOwnPropertyDescriptor(HTMLFormElement.prototype, 'method');
       if (methodDescriptor) {
         // nb. Some older iOS and older PhantomJS fail to return the descriptor. Don't do anything
         // and don't bother to update the element.
-        var realGet = methodDescriptor.get;
-        methodDescriptor.get = function() {
+        let realGet = methodDescriptor.get;
+        methodDescriptor.get = function () {
           if (isFormMethodDialog(this)) {
             return 'dialog';
           }
           return realGet.call(this);
         };
-        var realSet = methodDescriptor.set;
+        let realSet = methodDescriptor.set;
         /** @this {HTMLElement} */
-        methodDescriptor.set = function(v) {
+        methodDescriptor.set = function (v) {
           if (typeof v === 'string' && v.toLowerCase() === 'dialog') {
             return this.setAttribute('method', v);
           }
@@ -802,27 +819,35 @@
      * submitted a <form method="dialog">. Needed as Safari and others don't report this inside
      * document.activeElement.
      */
-    document.addEventListener('click', function(ev) {
+    document.addEventListener('click', function (ev) {
       dialogPolyfill.formSubmitter = null;
       dialogPolyfill.imagemapUseValue = null;
-      if (ev.defaultPrevented) { return; }  // e.g. a submit which prevents default submission
+      if (ev.defaultPrevented) {
+        return;
+      } // e.g. a submit which prevents default submission
 
-      var target = /** @type {Element} */ (ev.target);
+      let target = /** @type {Element} */ (ev.target);
       if ('composedPath' in ev) {
-        var path = ev.composedPath();
+        let path = ev.composedPath();
         target = path.shift() || target;
       }
-      if (!target || !isFormMethodDialog(target.form)) { return; }
+      if (!target || !isFormMethodDialog(target.form)) {
+        return;
+      }
 
-      var valid = (target.type === 'submit' && ['button', 'input'].indexOf(target.localName) > -1);
+      let valid = (target.type === 'submit' && ['button', 'input'].indexOf(target.localName) > -1);
       if (!valid) {
-        if (!(target.localName === 'input' && target.type === 'image')) { return; }
+        if (!(target.localName === 'input' && target.type === 'image')) {
+          return;
+        }
         // this is a <input type="image">, which can submit forms
         dialogPolyfill.imagemapUseValue = ev.offsetX + ',' + ev.offsetY;
       }
 
-      var dialog = findNearestDialog(target);
-      if (!dialog) { return; }
+      let dialog = findNearestDialog(target);
+      if (!dialog) {
+        return;
+      }
 
       dialogPolyfill.formSubmitter = target;
 
@@ -832,15 +857,15 @@
      * Global 'submit' handler. This handles submits of `method="dialog"` which are invalid, i.e.,
      * outside a dialog. They get prevented.
      */
-    document.addEventListener('submit', function(ev) {
-      var form = ev.target;
-      var dialog = findNearestDialog(form);
+    document.addEventListener('submit', function (ev) {
+      let form = ev.target;
+      let dialog = findNearestDialog(form);
       if (dialog) {
-        return;  // ignore, handle there
+        return; // ignore, handle there
       }
 
-      var submitter = findFormSubmitter(ev);
-      var formmethod = submitter && submitter.getAttribute('formmethod') || form.getAttribute('method');
+      let submitter = findFormSubmitter(ev);
+      let formmethod = submitter && submitter.getAttribute('formmethod') || form.getAttribute('method');
       if (formmethod === 'dialog') {
         ev.preventDefault();
       }
@@ -850,12 +875,12 @@
      * Replace the native HTMLFormElement.submit() method, as it won't fire the
      * submit event and give us a chance to respond.
      */
-    var nativeFormSubmit = HTMLFormElement.prototype.submit;
-    var replacementFormSubmit = function () {
+    let nativeFormSubmit = HTMLFormElement.prototype.submit;
+    let replacementFormSubmit = function () {
       if (!isFormMethodDialog(this)) {
         return nativeFormSubmit.call(this);
       }
-      var dialog = findNearestDialog(this);
+      let dialog = findNearestDialog(this);
       dialog && dialog.close();
     };
     HTMLFormElement.prototype.submit = replacementFormSubmit;

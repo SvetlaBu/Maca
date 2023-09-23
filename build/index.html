@@ -192,7 +192,7 @@
             <div class="about__info">
               <h3>Наша цель</h3>
               <p>Наша деятельность направлена на&nbsp;повышение квалификации молодых специалистов на&nbsp;ранних и&nbsp;средних стадиях карьеры, предоставляя им&nbsp;инструменты для решения сложных проблем, с&nbsp;которыми сталкиваются Израиль и&nbsp;еврейские общины во&nbsp;всем мире. Цель центра&nbsp;&mdash; наделить этих людей способностью инициировать значимые изменения.</p>
-              <button class="btn btn--modal" type="button">
+              <button class="btn btn--modal" type="button" data-open-modal="feedback">
                 Подробнее о&nbsp;проекте
                 <svg width="10" height="10" aria-hidden="true" focusable="false">
                   <use href="./img/sprite.svg#arrow"></use>
@@ -824,22 +824,22 @@
           </a>
           <ul class="menu">
             <li class="menu__item">
-              <a class="menu__link" href="#">О&nbsp;проекте</a>
+              <a class="menu__link" href="#about">О&nbsp;проекте</a>
             </li>
             <li class="menu__item">
-              <a class="menu__link" href="#">Программы</a>
+              <a class="menu__link" href="#programs">Программы</a>
             </li>
             <li class="menu__item">
-              <a class="menu__link" href="#">Как поехать</a>
+              <a class="menu__link" href="#rules">Как поехать</a>
             </li>
             <li class="menu__item">
-              <a class="menu__link" href="#">Отзывы</a>
+              <a class="menu__link" href="#rewiews">Отзывы</a>
             </li>
             <li class="menu__item">
-              <a class="menu__link" href="#">Новости</a>
+              <a class="menu__link" href="#news">Новости</a>
             </li>
             <li class="menu__item">
-              <a class="menu__link" href="#">Контакты</a>
+              <a class="menu__link" href="#contacts">Контакты</a>
             </li>
           </ul>
           <ul class="social">
@@ -872,15 +872,15 @@
         </div>
       </footer>
     </div>
-    <dialog id="modal" class="modal modal--preload">
+    <div id="modal" class="modal modal--preload" data-modal="feedback">
       <div class="modal__wrapper">
-        <button class="modal__close" type="button" aria-label="Закрыть окно обратной связи.">
+        <button class="modal__close" type="button" aria-label="Закрыть окно обратной связи." data-close-modal>
           <svg width="22" height="22">
             <use href="./img/sprite.svg#cross"></use>
           </svg>
         </button>
       </div>
-    </dialog>
+    </div>
     <script src="js/main.min.js"></script>
   </body>
 </html>
