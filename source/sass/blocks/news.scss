@@ -136,6 +136,10 @@
     width: 48.6%;
     max-width: 604px;
 
+    @include vp-1199 {
+      max-width: 100%;
+    }
+
     .news__content {
       margin-right: 34.7%;
 
@@ -170,6 +174,7 @@
   @include vp-1199 {
     aspect-ratio: 324/350;
     min-height: 350px;
+    max-width: 100%;
 
     &--first {
       order: -2;

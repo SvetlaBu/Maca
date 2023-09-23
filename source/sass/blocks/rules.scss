@@ -64,6 +64,19 @@
 .rules__question {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
+
+  @include vp-1199 {
+    flex-direction: column;
+
+    picture {
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
 
   p {
     line-height: 24.4px;
@@ -114,7 +127,6 @@
 
   @include vp-767 {
     margin-top: 34px;
-
     p {
       margin: 0 0 26px;
       font-size: 18px;

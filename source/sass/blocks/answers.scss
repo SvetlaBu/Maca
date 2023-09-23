@@ -109,18 +109,6 @@
     background-color: $color-endeavour;
   }
 
-  &:hover,
-  &:focus {
-    .answers__button {
-      background-color: $color-transparent;
-      border-color: $color-default-white;
-
-      &::before {
-        background-color: $color-default-white;
-      }
-    }
-  }
-
   &:active {
     background-color: $color-endeavour;
 
@@ -291,15 +279,17 @@
     opacity: 0;
   }
 
-  @include hover-focus {
-    background-color: $color-transparent;
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    background-color: $color-alabaster;
 
     &::before {
       background-color: $color-default-white;
     }
   }
 
-  @include active {
+  &:active {
     background-color: $color-default-white;
     border-color: $color-default-white;
 

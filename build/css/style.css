@@ -4849,6 +4849,24 @@ button,
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+@media (max-width: 1199px) {
+  .rules__question {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .rules__question picture {
+    width: 100%;
+  }
+  .rules__question img {
+    width: 100%;
+  }
 }
 .rules__question p {
   line-height: 24.4px;
@@ -5154,6 +5172,11 @@ button,
   width: 48.6%;
   max-width: 604px;
 }
+@media (max-width: 1199px) {
+  .news__item:first-of-type {
+    max-width: 100%;
+  }
+}
 .news__item:first-of-type .news__content {
   margin-right: 34.7%;
 }
@@ -5189,6 +5212,7 @@ button,
   .news__item {
     aspect-ratio: 324/350;
     min-height: 350px;
+    max-width: 100%;
   }
   .news__item--first {
     -webkit-box-ordinal-group: -1;
@@ -5580,13 +5604,6 @@ button,
 .answers__item.is-active:has(.answers__button:active) {
   background-color: #275699;
 }
-.answers__item.is-active:hover .answers__button, .answers__item.is-active:focus .answers__button {
-  background-color: rgba(255, 255, 255, 0);
-  border-color: #ffffff;
-}
-.answers__item.is-active:hover .answers__button::before, .answers__item.is-active:focus .answers__button::before {
-  background-color: #ffffff;
-}
 .answers__item.is-active:active {
   background-color: #275699;
 }
@@ -5755,25 +5772,17 @@ button,
 .answers__item.is-active .answers__button::after {
   opacity: 0;
 }
-@media (hover: hover) {
-  .answers__item.is-active .answers__button:hover:not(.focus-visible) {
-    background-color: rgba(255, 255, 255, 0);
-  }
-  .answers__item.is-active .answers__button:hover:not(.focus-visible)::before {
-    background-color: #ffffff;
-  }
+.answers__item.is-active .answers__button:hover, .answers__item.is-active .answers__button:focus, .answers__item.is-active .answers__button:focus-visible {
+  background-color: #f0efe9;
 }
-.answers__item.is-active .answers__button.focus-visible:focus {
-  background-color: rgba(255, 255, 255, 0);
-}
-.answers__item.is-active .answers__button.focus-visible:focus::before {
+.answers__item.is-active .answers__button:hover::before, .answers__item.is-active .answers__button:focus::before, .answers__item.is-active .answers__button:focus-visible::before {
   background-color: #ffffff;
 }
-.answers__item.is-active .answers__button.focus-visible:active {
+.answers__item.is-active .answers__button:active {
   background-color: #ffffff;
   border-color: #ffffff;
 }
-.answers__item.is-active .answers__button.focus-visible:active::before {
+.answers__item.is-active .answers__button:active::before {
   background-color: #275699;
 }
 
