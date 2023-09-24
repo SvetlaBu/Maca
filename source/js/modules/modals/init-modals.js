@@ -1,5 +1,4 @@
 import {Modals} from './modals';
-import {Form} from '../form-validate/form';
 
 let modals;
 
@@ -28,12 +27,7 @@ const settings = {
 };
 
 const initModals = () => {
-  const modalElements = document.querySelectorAll('#modal');
-  const modalContainer = document.querySelector('.modal__wrapper');
-  const modalPin = modalContainer.querySelector('.modal__close');
-  const modalTemplate = document.querySelector('.feedback__form');
-  const modalElement = modalTemplate.cloneNode(true);
-  modalContainer.insertBefore(modalElement, modalPin);
+  const modalElements = document.querySelectorAll('.modal');
 
   modalElements.forEach((el) => {
     setTimeout(() => {

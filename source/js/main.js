@@ -19,26 +19,26 @@ window.addEventListener('DOMContentLoaded', () => {
   iosVhFix();
 
   // Modules
+  initAccordions();
+
   addHeroSlider();
+  addToggleMenu();
+  addProgramsSlider();
+  addTabHandler();
+  addNewsSlider();
+  addReviewsSlider();
+  addContactsMap();
   // ---------------------------------
 
   // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
   // в load следует добавить скрипты, не участвующие в работе первого экрана
   window.addEventListener('load', () => {
-    addToggleMenu();
-    initAccordions();
-    addProgramsSlider();
-    addTabHandler();
-    addNewsSlider();
-    addReviewsSlider();
-    addContactsMap();
     initModals();
     const form = new Form();
     window.form = form;
     form.init();
     const select = new CustomSelect();
     select.init();
-    addHeroSlider();
   });
 });
 

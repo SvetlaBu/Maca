@@ -3890,53 +3890,6 @@ button,
   }
 }
 
-.modal__close {
-  position: absolute;
-  top: 26px;
-  right: 18px;
-  z-index: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  color: #316dc2;
-  background: rgba(255, 255, 255, 0);
-  border: none;
-  outline: none;
-  cursor: pointer;
-  -webkit-transition: opacity 0.3s ease, color 0.3s ease;
-  transition: opacity 0.3s ease, color 0.3s ease;
-}
-@media (max-width: 767px) {
-  .modal__close {
-    top: 15px;
-    right: 16px;
-    width: 25px;
-    height: 25px;
-  }
-  .modal__close svg {
-    width: 16px;
-    height: 16px;
-  }
-}
-.modal__close:hover, .modal__close:focus, .modal__close:focus-visible {
-  outline: none;
-  border: none;
-  opacity: 0.7;
-}
-.modal__close:active {
-  color: #275699;
-  opacity: 1;
-}
-
 .programs {
   background-color: #f0efe9;
 }
