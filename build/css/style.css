@@ -2124,7 +2124,7 @@ button,
 
 .container {
   width: 86.9%;
-  max-width: 12100px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 0 5px;
 }
@@ -3772,6 +3772,11 @@ button,
   border-color: rgba(169, 175, 183, 0.5);
   color: #a9afb7;
 }
+.modal__wrapper .feedback__form input:focus + .custom-toggle__icon,
+.modal__wrapper .feedback__form input:focus-visible + .custom-toggle__icon,
+.modal__wrapper .feedback__form input:active + .custom-toggle__icon {
+  border-color: #484848;
+}
 .modal__wrapper .feedback__form input,
 .modal__wrapper .feedback__form .custom-select__button {
   color: #484848;
@@ -3782,18 +3787,22 @@ button,
     padding: 10px 20px 12px;
   }
 }
+.modal__wrapper .feedback__form input:checked:hover + .custom-toggle__icon,
+.modal__wrapper .feedback__form input:checked:focus + .custom-toggle__icon,
+.modal__wrapper .feedback__form input:checked:focus-visible + .custom-toggle__icon {
+  background-color: #316dc2;
+}
+.modal__wrapper .feedback__form input:checked:hover + .custom-toggle__icon::before,
+.modal__wrapper .feedback__form input:checked:focus + .custom-toggle__icon::before,
+.modal__wrapper .feedback__form input:checked:focus-visible + .custom-toggle__icon::before {
+  background-image: url('data:image/svg+xml,<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 3.5L3.94737 7L9 1" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+}
 @media (max-width: 767px) {
   .modal__wrapper .feedback__form .custom-select__button,
 .modal__wrapper .feedback__form .custom-select__item {
     padding: 8px 20px 10px;
     min-height: 44px;
   }
-}
-.modal__wrapper .custom-toggle input:checked + .custom-toggle__icon {
-  background-color: #316dc2;
-}
-.modal__wrapper .custom-toggle input:checked + .custom-toggle__icon::before {
-  background-image: url('data:image/svg+xml,<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 3.5L3.94737 7L9 1" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>');
 }
 .modal__wrapper .custom-select__icon {
   background-color: #484848;
@@ -4422,18 +4431,10 @@ button,
 .custom-toggle input:checked + .custom-toggle__icon::before {
   opacity: 1;
 }
-@media (hover: hover) {
-  .custom-toggle input:checked:hover:not(.focus-visible) + .custom-toggle__icon {
-    background-color: rgba(255, 255, 255, 0);
-  }
-  .custom-toggle input:checked:hover:not(.focus-visible) + .custom-toggle__icon::before {
-    background-image: url('data:image/svg+xml,<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 3.5L3.94737 7L9 1" stroke="%23ffffff" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-  }
-}
-.custom-toggle input:checked.focus-visible:focus + .custom-toggle__icon {
+.custom-toggle input:checked:hover + .custom-toggle__icon, .custom-toggle input:checked:focus + .custom-toggle__icon, .custom-toggle input:checked:focus-visible + .custom-toggle__icon {
   background-color: rgba(255, 255, 255, 0);
 }
-.custom-toggle input:checked.focus-visible:focus + .custom-toggle__icon::before {
+.custom-toggle input:checked:hover + .custom-toggle__icon::before, .custom-toggle input:checked:focus + .custom-toggle__icon::before, .custom-toggle input:checked:focus-visible + .custom-toggle__icon::before {
   background-image: url('data:image/svg+xml,<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 3.5L3.94737 7L9 1" stroke="%23ffffff" stroke-linecap="round" stroke-linejoin="round"/></svg>');
 }
 .custom-toggle input:checked:disabled + .custom-toggle__icon {
@@ -4619,7 +4620,7 @@ button,
           align-items: center;
   width: 100%;
   min-height: 50px;
-  padding: 14px 20px 15px;
+  padding: 8px 20px 10px;
   font-size: 14px;
   line-height: 14px;
   color: #ffffff;
@@ -4749,7 +4750,7 @@ button,
   color: #ffffff;
   background-color: #316dc2;
 }
-.custom-select__item.focus-visible:focus {
+.custom-select__item:focus, .custom-select__item:focus-visible {
   color: #ffffff;
   background-color: #316dc2;
 }
@@ -5359,7 +5360,7 @@ button,
   background-image: url('data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 16C7.16344 16 0 8.83656 0 0V16H16Z" fill="%23f0efe9"/></svg>');
 }
 .news__text p {
-  max-width: 186px;
+  max-width: 156px;
   display: inline-block;
   margin: 0;
   font-size: 14px;

@@ -93,7 +93,7 @@
   align-items: center;
   width: 100%;
   min-height: 50px;
-  padding: 14px 20px 15px;
+  padding: 8px 20px 10px;
   font-size: 14px;
   line-height: 14px;
   color: $color-default-white;
@@ -216,7 +216,8 @@
     background-color: $color-cerulean-blue;
   }
 
-  @include focus {
+  &:focus,
+  &:focus-visible {
     color: $color-default-white;
     background-color: $color-cerulean-blue;
   }

@@ -31,7 +31,9 @@
     }
 
     &:checked {
-      @include hover-focus {
+      &:hover,
+      &:focus,
+      &:focus-visible {
         & + .custom-toggle__icon {
           background-color: $color-transparent;
 
