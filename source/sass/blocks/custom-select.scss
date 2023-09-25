@@ -118,8 +118,10 @@
     }
   }
 
-  @include hover-focus {
-    border: 1px solid $color-default-white;
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    border-color: rgba($color-default-white, 1);
   }
 
   &:disabled {
@@ -231,6 +233,10 @@
 .custom-select.is-open .custom-select__list {
   visibility: visible;
   opacity: 1;
+}
+
+.custom-select.is-open .custom-select__button {
+  border-color: rgba($color-default-white, 1);
 }
 
 .custom-select.not-empty .custom-select__text {
