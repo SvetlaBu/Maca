@@ -337,7 +337,7 @@
   }
 
   p {
-    max-width: 156px;
+    max-width: 80%;
     display: inline-block;
     margin: 0;
     font-size: 14px;
@@ -391,7 +391,7 @@
   display: flex;
   justify-content: center;
   gap: 0 20px;
-  margin-left: 8.4%;
+  margin-left: 4.4%;
 
   @include vp-1199 {
     margin-left: 0;

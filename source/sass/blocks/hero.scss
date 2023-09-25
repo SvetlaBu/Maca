@@ -75,7 +75,7 @@
 
 .hero__content--first,
 .hero__content--second {
-  padding-top: 415px;
+  padding-top: 315px;
   padding-bottom: 56px;
 
   @include vp-1199 {
@@ -89,13 +89,16 @@
   }
 
   h3 {
-    padding: 40px 50px 34px;
+    padding: 40px 10px 34px 50px;
+    max-width: 78%;
 
     @include vp-1199 {
+      max-width: 97.4%;
       padding: 30px 40px 20px;
     }
 
     @include vp-767 {
+      max-width: 100%;
       padding: 20px 13px 16px;
     }
   }

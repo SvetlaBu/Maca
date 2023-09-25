@@ -1,8 +1,5 @@
 import {ScrollLock} from '../../utils/scroll-lock';
 import {FocusLock} from '../../utils/focus-lock';
-import {Form} from '../form-validate/form';
-import {CustomSelect} from '../../vendor/select/custom-select';
-
 export class Modals {
   constructor(settings = {}) {
     this._scrollLock = new ScrollLock();
