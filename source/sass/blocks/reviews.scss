@@ -52,8 +52,9 @@
   display: flex;
   flex-direction: column;
   height: auto;
-  padding: 50px 49px 42px;
-  border: 1px solid $color-cerulean-blue;
+  padding: 54px 49px 42px;
+  outline-offset: -2px;
+  outline: 1px solid #316dc2;
   border-radius: 16px;
   gap: 25px 0;
 
@@ -62,7 +63,7 @@
   }
 
   @include vp-767 {
-    padding: 30px 14px 24px;
+    padding: 30px 14px 27px;
     gap: 24px 0;
   }
 }

@@ -8,11 +8,10 @@
     <link rel="icon" href="./favicon.ico">
     <link rel="icon" href="./favicon/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="./favicon/apple.png">
-    <link rel="manifest" href="./manifest.webmanifest">
     <link rel="preload" href="./fonts/manrope-light.woff2" type="font/woff2" as="font" crossorigin="anonymous">
     <link rel="preload" href="./fonts/manrope-regular.woff2" type="font/woff2" as="font" crossorigin="anonymous">
     <link rel="preload" href="./fonts/manrope-medium.woff2" type="font/woff2" as="font" crossorigin="anonymous">
-    <meta name="description" content="повышение квалификации, стажировки, волонтёрство, учёба, карьера, путешествия">
+    <meta name="description" content="учеба за границей, стажировка, волонтёрство, карьера, путешествия">
     <title>Маса</title>
     <link rel="stylesheet" href="css/style.min.css">
   </head>
@@ -101,7 +100,7 @@
         </div>
       </header>
       <main class="main">
-        <h1 class="visually-hidden">Обучение в Израиле с грантами для участников правительственного проекта «Маса».</h1>
+        <h1 class="visually-hidden">Обучение в Израиле с финансовой поддержкой правительства.</h1>
         <section class="hero">
           <h2 class="visually-hidden">Популярные программы.</h2>
           <div class="hero__slider swiper">
@@ -193,7 +192,7 @@
             <div class="about__info">
               <h3>Наша цель</h3>
               <p>Наша деятельность направлена на&nbsp;повышение квалификации молодых специалистов на&nbsp;ранних и&nbsp;средних стадиях карьеры, предоставляя им&nbsp;инструменты для решения сложных проблем, с&nbsp;которыми сталкиваются Израиль и&nbsp;еврейские общины во&nbsp;всем мире. Цель центра&nbsp;&mdash; наделить этих людей способностью инициировать значимые изменения.</p>
-              <button class="btn btn--modal" type="button">
+              <button class="btn btn--modal" type="button" data-open-modal="feedback" id="open-modal-button">
                 Подробнее о&nbsp;проекте
                 <svg width="10" height="10" aria-hidden="true" focusable="false">
                   <use href="./img/sprite.svg#arrow"></use>
@@ -825,22 +824,22 @@
           </a>
           <ul class="menu">
             <li class="menu__item">
-              <a class="menu__link" href="#">О&nbsp;проекте</a>
+              <a class="menu__link" href="#about">О&nbsp;проекте</a>
             </li>
             <li class="menu__item">
-              <a class="menu__link" href="#">Программы</a>
+              <a class="menu__link" href="#programs">Программы</a>
             </li>
             <li class="menu__item">
-              <a class="menu__link" href="#">Как поехать</a>
+              <a class="menu__link" href="#rules">Как поехать</a>
             </li>
             <li class="menu__item">
-              <a class="menu__link" href="#">Отзывы</a>
+              <a class="menu__link" href="#rewiews">Отзывы</a>
             </li>
             <li class="menu__item">
-              <a class="menu__link" href="#">Новости</a>
+              <a class="menu__link" href="#news">Новости</a>
             </li>
             <li class="menu__item">
-              <a class="menu__link" href="#">Контакты</a>
+              <a class="menu__link" href="#contacts">Контакты</a>
             </li>
           </ul>
           <ul class="social">
@@ -873,15 +872,62 @@
         </div>
       </footer>
     </div>
-    <dialog  id="modal" class="modal modal--preload">
+    <div class="modal modal--preload" data-modal="feedback" id="modal-window">
       <div class="modal__wrapper">
-        <button class="modal__close" type="button" aria-label="Закрыть окно обратной связи.">
-          <svg width="22" height="22">
-            <use href="./img/sprite.svg#cross"></use>
-          </svg>
-        </button>
+        <div class="modal__overlay" data-close-modal></div>
+        <div class="modal__content">
+          <h2 class="modal__title">Напишите нам</h2>
+          <p class="modal__text">Оставьте ваши контакты, если у&nbsp;вас остались вопросы&nbsp;&mdash; мы&nbsp;на&nbsp;них ответим!</p>
+          <div class="modal__form" data-form-validate="data-form-validate" data-callback="base">
+            <form action="https://echo.htmlacademy.ru/" method="post" autocomplete="off" novalidate>
+              <div class="custom-input custom-input--secondary" data-validate-type="text" data-limitation="name" data-required>
+                <label>
+                  <span class="custom-input__label custom-input__label--secondary">Имя</span>
+                  <input type="text" name="name" pattern="^[а-яА-ЯёЁa-zA-Z\-]+$" autofocus data-focus id="modal-name" required>
+                </label>
+              </div>
+              <div class="custom-input custom-input--secondary" data-validate-type="phone" data-required data-phone-length="18">
+                <label>
+                  <span class="custom-input__label custom-input__label--secondary">Телефон</span>
+                  <input type="tel" name="phone" pattern="^(\+)|[\d\s]+$" minlength="11" required>
+                </label>
+              </div>
+              <div class="custom-select custom-select--secondary" data-select data-validate-type="select" data-name="city" data-id="city" data-required>
+                <span class="custom-select__label custom-select__label--secondary">Выберите город</span>
+                <button class="custom-select__button custom-select__button--secondary" type="button" aria-label="Выберите одну из опций">
+                  <span class="custom-select__text"></span>
+                  <span class="custom-select__icon custom-select__icon--secondary"></span>
+                </button>
+                <ul class="custom-select__list custom-select__list--secondary" role="listbox">
+                  <li class="custom-select__item" tabindex="0" data-select-value="id-1" aria-selected="false" role="option">Москва</li>
+                  <li class="custom-select__item" tabindex="0" data-select-value="id-2" aria-selected="false" role="option">Санкт-Петербург</li>
+                  <li class="custom-select__item" tabindex="0" data-select-value="id-3" aria-selected="false" role="option">Екатеринбург</li>
+                  <li class="custom-select__item" tabindex="0" data-select-value="id-4" aria-selected="false" role="option">Новосибирск</li>
+                </ul>
+              </div>
+              <div class="custom-toggle custom-toggle--secondary custom-toggle--checkbox" data-validate-type="checkbox" data-required>
+                <label>
+                  <input type="checkbox" value="user-agreement" name="user-agreement">
+                  <span class="custom-toggle__icon custom-toggle__icon--secondary"></span>
+                  <span class="custom-toggle__label">Я&nbsp;согласен на&nbsp;обработку моих персональных данных</span>
+                </label>
+              </div>
+              <button class="modal__btn btn" type="submit">
+                Отправить
+                <svg width="10" height="10" aria-hidden="true" focusable="false">
+                  <use href="./img/sprite.svg#arrow"></use>
+                </svg>
+              </button>
+            </form>
+          </div>
+          <button class="modal__close" type="button" aria-label="Закрыть попап" data-close-modal>
+            <svg width="22" height="22">
+              <use href="./img/sprite.svg#cross"></use>
+            </svg>
+          </button>
+        </div>
       </div>
-    </dialog>
+    </div>
     <script src="js/main.min.js"></script>
   </body>
 </html>

@@ -9,10 +9,6 @@
     align-items: center;
     min-height: 20px;
     cursor: pointer;
-
-    &:has(input:disabled) {
-      pointer-events: none;
-    }
   }
 
   input {
@@ -30,14 +26,14 @@
       }
     }
 
-    &:checked {
-      @include hover-focus {
-        & + .custom-toggle__icon {
-          background-color: $color-transparent;
+    &:checked:hover,
+    &:checked:focus,
+    &:checked:focus-visible {
+      & + .custom-toggle__icon {
+        background-color: $color-transparent;
 
-          &::before {
-            background-image: url('data:image/svg+xml,\<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">\<path d="M1 3.5L3.94737 7L9 1" stroke="%23ffffff" stroke-linecap="round" stroke-linejoin="round"/>\</svg>');
-          }
+        &::before {
+          background-image: url('data:image/svg+xml,\<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">\<path d="M1 3.5L3.94737 7L9 1" stroke="%23ffffff" stroke-linecap="round" stroke-linejoin="round"/>\</svg>');
         }
       }
 
@@ -69,12 +65,7 @@
   &--secondary {
     input {
       &:checked + .custom-toggle__icon {
-        background-color: $color-cerulean-blue;
-        border-color: $color-cerulean-blue;
-
-        &::before {
-          background-image: url('data:image/svg+xml,\<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">\<path d="M1 3.5L3.94737 7L9 1" stroke="%23ffffff" stroke-linecap="round" stroke-linejoin="round"/>\</svg>');
-        }
+        color: $color-default-white;
       }
 
       &:checked:hover,

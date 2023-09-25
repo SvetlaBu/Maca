@@ -1,24 +1,38 @@
 .modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
   display: flex;
-  border: none;
-  padding: 0;
   flex-direction: column;
-  border-radius: 16px;
-  margin-top: 90px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: rgba($color-black-pearl, 0.2);
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity $trans-modal,
+    transform $trans-modal,
+    visibility $trans-modal;
+  pointer-events: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
-  &::backdrop {
-    background-color: rgba(13, 29, 51, 0.4);
-    width: 100%;
-    height: 100%;
+  &::-webkit-scrollbar {
+    display: none;
   }
 
-  @include vp-1199 {
-    margin-top: 120px;
+  &--preload {
+    transition: none;
   }
 
-  @include vp-767 {
-    margin-top: 24px;
-    transform: scale(1.03);
+  &.is-active {
+    transform: scale(1);
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 
@@ -30,39 +44,140 @@
   align-items: center;
   width: 100%;
   min-height: 100%;
+  padding: 60px 45px;
+
+  @include vp-767 {
+    padding: 60px 15px;
+  }
+}
+
+.modal__overlay {
+  position: absolute;
+  background-color: rgba($color-black-pearl, 0.2);
+  cursor: pointer;
+  inset: 0;
+}
+
+.modal__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 510px;
+  padding: 53px 80px 60px;
+  background-color: $color-default-white;
   border-radius: 16px;
 
-  .feedback__form {
-    padding: 60px 80px 58px;
-    background-color: $color-default-white;
-    color: $color-charcoal;
+  @include vp-1199 {
+    padding: 55px 80px 60px;
+  }
+
+  @include vp-767 {
+    width: 100%;
+    padding: 37px 15px 40px;
+  }
+}
+
+.modal__title {
+  margin: 0 0 7px;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 36px;
+  text-align: center;
+  color: $color-cerulean-blue;
+
+  @include vp-1199 {
+    margin: 0 0 13px;
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  @include vp-767 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    line-height: 18px;
+  }
+}
+
+.modal__text {
+  margin: 0 0 24px;
+  text-align: center;
+
+  @include vp-1199 {
+    margin: 0 0 24px;
+    line-height: 20px;
+  }
+
+  @include vp-767 {
+    align-self: center;
+    max-width: 80%;
+    margin: 0 0 20px;
+    font-size: 14px;
+  }
+}
+
+.modal__form {
+  form {
     display: flex;
     flex-direction: column;
-    max-width: 510px;
-    gap: 18px 0;
-
-    @include vp-767 {
-      gap: 15px 0;
-      padding: 60px 10px 58px;
-    }
+    gap: 19px 0;
 
     input,
     .custom-select__button,
     .custom-toggle__icon {
+      outline: none;
       border-color: rgba(72, 72, 72, 0.3);
+
+      &:hover {
+        border-color: $color-dim-gray;
+      }
+
+      &:focus,
+      &:active {
+        border-color: $color-charcoal;
+      }
+
+      &:disabled {
+        background-color: rgba(169, 175, 183, 0.2);
+        border-color: rgba(169, 175, 183, 0.5);
+        color: $color-mischka;
+      }
+    }
+
+    input:focus + .custom-toggle__icon,
+    input:focus-visible + .custom-toggle__icon,
+    input:active + .custom-toggle__icon {
+      border-color: $color-charcoal;
     }
 
     input,
     .custom-select__button {
       color: $color-charcoal;
+
+      @include vp-767 {
+        padding: 10px 20px 12px;
+      }
     }
-  }
 
-  .custom-toggle input:checked + .custom-toggle__icon {
-    background-color: $color-cerulean-blue;
+    input:checked + .custom-toggle__icon {
+      background-color: transparent;
+    }
 
-    &::before {
-      background-image: url('data:image/svg+xml,\<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">\<path d="M1 3.5L3.94737 7L9 1" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>\</svg>');
+    input:checked:hover + .custom-toggle__icon,
+    input:checked:focus + .custom-toggle__icon,
+    input:checked:focus-visible + .custom-toggle__icon {
+      background-color: $color-cerulean-blue;
+
+      &::before {
+        background-image: url('data:image/svg+xml,\<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">\<path d="M1 3.5L3.94737 7L9 1" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>\</svg>');
+      }
+    }
+
+    .custom-select__button,
+    .custom-select__item {
+      @include vp-767 {
+        padding: 8px 20px 10px;
+        min-height: 44px;
+      }
     }
   }
 
@@ -70,75 +185,27 @@
     background-color: $color-charcoal;
   }
 
-  .custom-textarea {
-    display: none;
-  }
-
-  .btn--secondary::before {
-    background-color: $color-cerulean-blue;
-  }
-
-  .feedback__title {
-    margin: 0 0 7px;
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 36px;
-    text-align: center;
-    color: $color-cerulean-blue;
-
-    @include vp-1199 {
-      margin: 0 0 13px;
-      font-size: 28px;
-      line-height: 28px;
-    }
-
-    @include vp-767 {
-      margin: 0 0 8px;
-      font-size: 18px;
-      line-height: 18px;
+  @include vp-767 {
+    form {
+      gap: 16px 0;
     }
   }
+}
 
-  .feedback__text {
-    margin: 0 0 21px;
-    text-align: center;
+.modal__btn {
+  align-self: center;
+  margin: 12px 0 0;
 
-    @include vp-1199 {
-      margin: 0 0 24px;
-      line-height: 20px;
-    }
-
-    @include vp-767 {
-      align-self: center;
-      max-width: 90%;
-      margin: 0 0 20px;
-      font-size: 14px;
-    }
-  }
-
-  .feedback__btn {
-    width: 60%;
-    align-self: center;
-    margin: 12px 0 0;
-    color: $color-cerulean-blue;
-    border: 1px solid $color-cerulean-blue;
-
-    svg {
-      color: $color-default-white;
-    }
-
-    @include vp-767 {
-      align-self: stretch;
-      margin: 9px 0 0;
-      width: 100%;
-    }
+  @include vp-767 {
+    align-self: stretch;
+    margin: 9px 0 0;
   }
 }
 
 .modal__close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 21px;
+  right: 21px;
   z-index: 1;
   display: flex;
   justify-content: center;
@@ -167,11 +234,15 @@
     }
   }
 
-  @include hover-focus {
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    border: none;
+    outline: none;
     opacity: 0.7;
   }
 
-  @include active {
+  &:active {
     color: $color-endeavour;
     opacity: 1;
   }

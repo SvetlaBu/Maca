@@ -53,7 +53,9 @@
       color: $color-default-white;
     }
 
-    @include hover-focus {
+    &:hover,
+    &:focus,
+    &:focus-visible {
       color: $color-default-white;
     }
   }
@@ -78,6 +80,12 @@
       color: rgba($color-default-white, 0.6);
       text-transform: none;
       letter-spacing: normal;
+
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        color: $color-default-white;
+      }
 
       &--current {
         color: rgba($color-default-white, 0.9);

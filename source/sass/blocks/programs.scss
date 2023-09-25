@@ -134,6 +134,14 @@
     .programs__text {
       padding: 1px 1.8% 2px 5.8%;
 
+      p {
+        margin-top: 3%;
+
+        @include vp-1199 {
+          margin-top: 0;
+        }
+      }
+
       @include vp-1199 {
         padding: 9px 18px 12px;
       }
@@ -202,12 +210,12 @@
   background-color: $color-default-white;
   padding: 2px 1.8% 14px 5.8%;
   border-radius: 0 12px 12px 12px;
-  min-height: 78px;
+  min-height: 80px;
 
   p {
     display: inline-block;
     width: 80%;
-    margin-right: 5.1%;
+    margin: 6.6% 5.1% 2% 0;
     font-size: 14px;
     line-height: 18px;
     vertical-align: middle;
@@ -219,7 +227,7 @@
 
     p {
       width: auto;
-      max-width: 80%;
+      max-width: 81%;
       margin: 0;
       margin-right: 4%;
       line-height: 20px;
@@ -240,6 +248,7 @@
 
 .programs__arrow {
   left: 0;
+  margin-top: 1%;
   vertical-align: middle;
 }
 

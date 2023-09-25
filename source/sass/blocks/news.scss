@@ -55,7 +55,7 @@
     align-self: flex-start;
     width: calc(100% + 15px);
     padding-right: 15px;
-    overflow-x: auto;
+    overflow-x: hidden;
     gap: 0 11px;
   }
 }
@@ -105,10 +105,6 @@
 }
 
 .news__list {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-
   @include vp-1199 {
     min-width: 50%;
   }
@@ -118,8 +114,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  max-width: 286px;
   width: 23.1%;
-  margin-right: 2.58%;
   min-height: 400px;
   height: auto;
   background-color: $color-alabaster;
@@ -138,6 +134,11 @@
 
   &:first-of-type {
     width: 48.6%;
+    max-width: 604px;
+
+    @include vp-1199 {
+      max-width: 100%;
+    }
 
     .news__content {
       margin-right: 34.7%;
@@ -173,6 +174,7 @@
   @include vp-1199 {
     aspect-ratio: 324/350;
     min-height: 350px;
+    max-width: 100%;
 
     &--first {
       order: -2;
@@ -335,7 +337,7 @@
   }
 
   p {
-    max-width: 186px;
+    max-width: 80%;
     display: inline-block;
     margin: 0;
     font-size: 14px;
@@ -389,7 +391,7 @@
   display: flex;
   justify-content: center;
   gap: 0 20px;
-  margin-left: 8.4%;
+  margin-left: 4.4%;
 
   @include vp-1199 {
     margin-left: 0;

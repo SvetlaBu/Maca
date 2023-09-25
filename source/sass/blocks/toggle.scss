@@ -66,7 +66,9 @@
     padding-right: calc(100% - 65px);
   }
 
-  @include hover-focus {
+  &:hover,
+  &:focus,
+  &:focus-visible {
     color: $color-cerulean-blue;
     background-color: $color-default-white;
 
@@ -79,7 +81,7 @@
     }
   }
 
-  @include active {
+  &:active {
     color: rgba($color-cerulean-blue, 0.7);
     background-color: $color-default-white;
 

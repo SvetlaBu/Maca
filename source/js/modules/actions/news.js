@@ -25,6 +25,14 @@ const addNewsSlider = () => {
         },
         1200: {
           slidesPerView: 'auto',
+          spaceBetween: 26,
+          grid: {
+            rows: 1,
+          },
+        },
+        1440: {
+          slidesPerView: 'auto',
+          spaceBetween: 32,
           grid: {
             rows: 1,
           },
