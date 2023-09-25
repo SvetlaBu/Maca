@@ -6,10 +6,10 @@ const addHeroSlider = () => {
     return new Swiper('.hero__slider', {
       allowTouchMove: isMobile(),
       loop: true,
-      // autoplay: {
-      //   delay: 3000,
-      //   disableOnInteraction: false,
-      // },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
       effect: 'fade',
       fadeEffect: {
         crossFade: true,
