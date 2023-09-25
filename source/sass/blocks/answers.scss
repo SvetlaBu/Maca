@@ -280,9 +280,16 @@
   }
 
   &:hover,
-  &:focus,
-  &:focus-visible {
+  &:focus {
     background-color: $color-alabaster;
+
+    &::before {
+      background-color: $color-default-white;
+    }
+  }
+
+  &:focus-visible {
+    background-color: transparent;
 
     &::before {
       background-color: $color-default-white;

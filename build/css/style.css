@@ -2729,6 +2729,10 @@ button,
   gap: 5.5px 0;
 }
 
+.nav__subnav .nav__item {
+  visibility: hidden;
+}
+
 .nav__subnav .nav__link {
   color: rgba(255, 255, 255, 0.6);
   text-transform: none;
@@ -2751,6 +2755,10 @@ button,
 
 .is-active .nav__subnav {
   margin-top: 10px;
+}
+
+.is-active .nav__item {
+  visibility: visible;
 }
 
 .is-active .nav__icon {
@@ -3714,6 +3722,20 @@ button,
   gap: 10px 0;
 }
 
+.custom-input label:hover .custom-input__label,
+.custom-input label:hover .custom-textarea__label,
+.custom-textarea label:hover .custom-input__label,
+.custom-textarea label:hover .custom-textarea__label {
+  opacity: 1;
+}
+
+.custom-input label:hover input,
+.custom-input label:hover textarea,
+.custom-textarea label:hover input,
+.custom-textarea label:hover textarea {
+  border: 1px solid #ffffff;
+}
+
 .custom-input label:focus .custom-input__label,
 .custom-input label:focus .custom-textarea__label,
 .custom-textarea label:focus .custom-input__label,
@@ -3728,17 +3750,10 @@ button,
   border: 1px solid #ffffff;
 }
 
-.custom-input label:has(input:disabled, textarea:disabled) .custom-input__label,
-.custom-input label:has(input:disabled, textarea:disabled) .custom-textarea__label,
-.custom-textarea label:has(input:disabled, textarea:disabled) .custom-input__label,
-.custom-textarea label:has(input:disabled, textarea:disabled) .custom-textarea__label {
-  opacity: 0.8;
-}
-
-.custom-input label:has(input:disabled, textarea:disabled) input,
-.custom-input label:has(input:disabled, textarea:disabled) textarea,
-.custom-textarea label:has(input:disabled, textarea:disabled) input,
-.custom-textarea label:has(input:disabled, textarea:disabled) textarea {
+.custom-input label input:disabled,
+.custom-input label textarea:disabled,
+.custom-textarea label input:disabled,
+.custom-textarea label textarea:disabled {
   background-color: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.4);
   pointer-events: none;
@@ -3759,6 +3774,21 @@ button,
   cursor: text;
   -webkit-transition: border 0.3s ease;
   transition: border 0.3s ease;
+}
+
+.custom-input input:hover,
+.custom-input input:focus,
+.custom-input input:focus-visible,
+.custom-input textarea:hover,
+.custom-input textarea:focus,
+.custom-input textarea:focus-visible,
+.custom-textarea input:hover,
+.custom-textarea input:focus,
+.custom-textarea input:focus-visible,
+.custom-textarea textarea:hover,
+.custom-textarea textarea:focus,
+.custom-textarea textarea:focus-visible {
+  border-color: white;
 }
 
 .custom-input textarea,
@@ -4046,8 +4076,10 @@ button,
   border-color: rgba(72, 72, 72, 0.5);
 }
 
-.custom-select__button.focus-visible:focus {
-  border: 1px solid #ffffff;
+.custom-select__button:hover,
+.custom-select__button:focus,
+.custom-select__button:focus-visible {
+  border-color: white;
 }
 
 .custom-select__button:disabled {
@@ -4153,6 +4185,10 @@ button,
 .custom-select.is-open .custom-select__list {
   visibility: visible;
   opacity: 1;
+}
+
+.custom-select.is-open .custom-select__button {
+  border-color: white;
 }
 
 .custom-select.not-empty .custom-select__text {
@@ -4796,13 +4832,19 @@ button,
 }
 
 .answers__item.is-active .answers__button:hover,
-.answers__item.is-active .answers__button:focus,
-.answers__item.is-active .answers__button:focus-visible {
+.answers__item.is-active .answers__button:focus {
   background-color: #f0efe9;
 }
 
 .answers__item.is-active .answers__button:hover::before,
-.answers__item.is-active .answers__button:focus::before,
+.answers__item.is-active .answers__button:focus::before {
+  background-color: #ffffff;
+}
+
+.answers__item.is-active .answers__button:focus-visible {
+  background-color: transparent;
+}
+
 .answers__item.is-active .answers__button:focus-visible::before {
   background-color: #ffffff;
 }
@@ -6772,20 +6814,6 @@ dialog.fixed {
     background-color: #316dc2;
   }
 
-  .custom-input label:hover:not(.focus-visible):not(:has(input:disabled, textarea:disabled)) .custom-input__label,
-  .custom-input label:hover:not(.focus-visible):not(:has(input:disabled, textarea:disabled)) .custom-textarea__label,
-  .custom-textarea label:hover:not(.focus-visible):not(:has(input:disabled, textarea:disabled)) .custom-input__label,
-  .custom-textarea label:hover:not(.focus-visible):not(:has(input:disabled, textarea:disabled)) .custom-textarea__label {
-    opacity: 1;
-  }
-
-  .custom-input label:hover:not(.focus-visible):not(:has(input:disabled, textarea:disabled)) input,
-  .custom-input label:hover:not(.focus-visible):not(:has(input:disabled, textarea:disabled)) textarea,
-  .custom-textarea label:hover:not(.focus-visible):not(:has(input:disabled, textarea:disabled)) input,
-  .custom-textarea label:hover:not(.focus-visible):not(:has(input:disabled, textarea:disabled)) textarea {
-    border: 1px solid #ffffff;
-  }
-
   .custom-input--secondary label:hover:not(.focus-visible):not(:has(input:disabled, textarea:disabled)) input,
   .custom-input--secondary label:hover:not(.focus-visible):not(:has(input:disabled, textarea:disabled)) textarea,
   .custom-textarea--secondary label:hover:not(.focus-visible):not(:has(input:disabled, textarea:disabled)) input,
@@ -6799,10 +6827,6 @@ dialog.fixed {
 
   .custom-select__button--secondary:hover:not(.focus-visible) {
     border-color: #484848;
-  }
-
-  .custom-select__button:hover:not(.focus-visible) {
-    border: 1px solid #ffffff;
   }
 
   .custom-select__item:hover:not(.focus-visible):not([aria-selected=true]) {

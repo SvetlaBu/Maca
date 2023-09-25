@@ -76,6 +76,10 @@
     transition: all $trans-default;
     gap: 5.5px 0;
 
+    .nav__item {
+      visibility: hidden;
+    }
+
     & .nav__link {
       color: rgba($color-default-white, 0.6);
       text-transform: none;
@@ -101,6 +105,10 @@
 
   .nav__subnav {
     margin-top: 10px;
+  }
+
+  .nav__item {
+    visibility: visible;
   }
 
   .nav__icon {

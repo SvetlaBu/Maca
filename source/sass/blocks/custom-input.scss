@@ -6,17 +6,15 @@
     width: 100%;
     gap: 10px 0;
 
-    @include hover {
-      &:not(:has(input:disabled, textarea:disabled)) {
-        .custom-input__label,
-        .custom-textarea__label {
-          opacity: 1;
-        }
+    &:hover {
+      .custom-input__label,
+      .custom-textarea__label {
+        opacity: 1;
+      }
 
-        input,
-        textarea {
-          border: 1px solid $color-default-white;
-        }
+      input,
+      textarea {
+        border: 1px solid $color-default-white;
       }
     }
 
@@ -32,18 +30,11 @@
       }
     }
 
-    &:has(input:disabled, textarea:disabled) {
-      .custom-input__label,
-      .custom-textarea__label {
-        opacity: 0.8;
-      }
-
-      input,
-      textarea {
-        background-color: rgba($color-default-white, 0.2);
-        border-color: rgba($color-default-white, 0.4);
-        pointer-events: none;
-      }
+    input:disabled,
+    textarea:disabled {
+      background-color: rgba($color-default-white, 0.2);
+      border-color: rgba($color-default-white, 0.4);
+      pointer-events: none;
     }
   }
 
@@ -59,6 +50,12 @@
     outline: none;
     cursor: text;
     transition: border $trans-default;
+
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      border-color: rgba($color-default-white, 1);
+    }
   }
 
   textarea {

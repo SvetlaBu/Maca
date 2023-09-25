@@ -163,6 +163,8 @@ export class Modals {
       this._focusLock.lock('.modal.is-active', this._startFocus);
     }
 
+    document.querySelector('.modal input').focus();
+
     setTimeout(() => {
       this._addListeners(modal);
       this._autoPlay(modal);
