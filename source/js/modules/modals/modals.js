@@ -107,6 +107,7 @@ export class Modals {
   _addListeners(modal) {
     modal.addEventListener('click', this._modalClickHandler);
     document.addEventListener('keydown', this._documentKeydownHandler);
+    document.querySelector('#el-focus').focus();
   }
 
   _removeListeners(modal) {
@@ -162,8 +163,6 @@ export class Modals {
     if (this._lockFocus) {
       this._focusLock.lock('.modal.is-active', this._startFocus);
     }
-
-    document.querySelector('.modal input').focus();
 
     setTimeout(() => {
       this._addListeners(modal);
